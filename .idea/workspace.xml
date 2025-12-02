@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4ed34b0-1bec-4ca7-a2ca-3bb8c282baf2" name="Changes" comment="refactor: front-end / back-end 프로젝트 구조 정리" />
+    <list default="true" id="a4ed34b0-1bec-4ca7-a2ca-3bb8c282baf2" name="Changes" comment="docs: 프로젝트 전체 요약문서 및 BOARD-SPEC 문서 수정">
+      <change afterPath="$PROJECT_DIR$/back-end/db.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/DIRECTORY-STRUCTURE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/styles/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/styles/index.scss" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,6 +32,9 @@
   &quot;associatedIndex&quot;: 3
 }</component>
   <component name="ProjectId" id="36GqC8INUHWyFqruJf3oDFituVn" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -62,7 +75,7 @@
       <option name="presentableId" value="Default" />
       <updated>1764643125656</updated>
       <workItem from="1764643126706" duration="5438000" />
-      <workItem from="1764654293766" duration="3146000" />
+      <workItem from="1764654293766" duration="9853000" />
     </task>
     <task id="LOCAL-00001" summary="build: Vite 제거 및 Webpack 기반 React 프로젝트로 전환">
       <option name="closed" value="true" />
@@ -96,7 +109,23 @@
       <option name="project" value="LOCAL" />
       <updated>1764657308238</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="docs: 프로젝트 전체 요약문서 및 back-end 문서 생성">
+      <option name="closed" value="true" />
+      <created>1764657561647</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1764657561647</updated>
+    </task>
+    <task id="LOCAL-00006" summary="docs: 프로젝트 전체 요약문서 및 BOARD-SPEC 문서 수정">
+      <option name="closed" value="true" />
+      <created>1764661315711</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1764661315711</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -118,6 +147,8 @@
     <MESSAGE value="docs: 프로젝트 문서 초기 생성 (README, BOARD-SPEC, COMPONENT-STRUCTURE, DIRECTORY-STRUCTURE, TECH-STACK)" />
     <MESSAGE value="feat: 초기 소스 파일 추가" />
     <MESSAGE value="refactor: front-end / back-end 프로젝트 구조 정리" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: front-end / back-end 프로젝트 구조 정리" />
+    <MESSAGE value="docs: 프로젝트 전체 요약문서 및 back-end 문서 생성" />
+    <MESSAGE value="docs: 프로젝트 전체 요약문서 및 BOARD-SPEC 문서 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs: 프로젝트 전체 요약문서 및 BOARD-SPEC 문서 수정" />
   </component>
 </project>

@@ -10,6 +10,7 @@
 }
 table{width:100%;border:none;border-bottom:1px solid #aaa;border-collapse:collapse;border-spacing:0;
     caption{@extend %visually-hidden;}
+    th,td{vertical-align:middle;}
     &.board-list{
         th{border-top:1px solid #aaa;}
         td{border-top:1px solid #e1e3e5;}
