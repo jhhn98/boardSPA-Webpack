@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4ed34b0-1bec-4ca7-a2ca-3bb8c282baf2" name="Changes" comment="build: Vite 제거 및 Webpack 기반 React 프로젝트로 전환" />
+    <list default="true" id="a4ed34b0-1bec-4ca7-a2ca-3bb8c282baf2" name="Changes" comment="docs: 프로젝트 문서 초기 생성 (README, BOARD-SPEC, COMPONENT-STRUCTURE, DIRECTORY-STRUCTURE, TECH-STACK)">
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,7 +33,7 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "/Users/jihyekim/Desktop/study/webpack/board",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -62,7 +64,7 @@
       <option name="presentableId" value="Default" />
       <updated>1764643125656</updated>
       <workItem from="1764643126706" duration="5438000" />
-      <workItem from="1764654293766" duration="1094000" />
+      <workItem from="1764654293766" duration="1787000" />
     </task>
     <task id="LOCAL-00001" summary="build: Vite 제거 및 Webpack 기반 React 프로젝트로 전환">
       <option name="closed" value="true" />
@@ -72,7 +74,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764652228067</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="docs: 프로젝트 문서 초기 생성 (README, BOARD-SPEC, COMPONENT-STRUCTURE, DIRECTORY-STRUCTURE, TECH-STACK)">
+      <option name="closed" value="true" />
+      <created>1764655660855</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1764655660855</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -91,6 +101,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="build: Vite 제거 및 Webpack 기반 React 프로젝트로 전환" />
-    <option name="LAST_COMMIT_MESSAGE" value="build: Vite 제거 및 Webpack 기반 React 프로젝트로 전환" />
+    <MESSAGE value="docs: 프로젝트 문서 초기 생성 (README, BOARD-SPEC, COMPONENT-STRUCTURE, DIRECTORY-STRUCTURE, TECH-STACK)" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs: 프로젝트 문서 초기 생성 (README, BOARD-SPEC, COMPONENT-STRUCTURE, DIRECTORY-STRUCTURE, TECH-STACK)" />
   </component>
 </project>
