@@ -1,4 +1,6 @@
 # boardSPA
+## 목적
+* 기존 MPA 방식의 게시판을 React를 사용하여 SPA 형식으로 수정한다.
 ## 문서 바로가기(/docs)
 * 프로젝트 기능정의: [BOARD-SPEC.md](./docs/BOARD-SPEC.md)
 * 기술 스택: [TECH-STACK.md](./docs/TECH-STACK.md)
