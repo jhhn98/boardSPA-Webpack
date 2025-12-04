@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4ed34b0-1bec-4ca7-a2ca-3bb8c282baf2" name="Changes" comment="docs: 프로젝트 전체 요약문서 및 BOARD-SPEC 문서 수정">
-      <change afterPath="$PROJECT_DIR$/back-end/db.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end/server.js" afterDir="false" />
+    <list default="true" id="a4ed34b0-1bec-4ca7-a2ca-3bb8c282baf2" name="Changes" comment="feat: back-end 개발환경 구성">
+      <change afterPath="$PROJECT_DIR$/front-end/src/assets/fonts/InspireKR-Regular.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/src/styles/base/_style-reset_bak251204.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/DIRECTORY-STRUCTURE.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/components/board/View.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/components/board/View.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/styles/base/_style-reset.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/styles/base/_style-reset.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-end/src/styles/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/styles/index.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,6 +41,7 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
     "last_opened_file_path": "/Users/jihyekim/Desktop/study/webpack/board",
     "node.js.detected.package.eslint": "true",
@@ -51,12 +49,13 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "/Users/jihyekim/Desktop/study/webpack/board/node_modules/typescript/lib",
+    "ts.external.directory.path": "/Users/jihyekim/Desktop/study/webpack/board/front-end/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/front-end/src/assets" />
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
@@ -75,7 +74,8 @@
       <option name="presentableId" value="Default" />
       <updated>1764643125656</updated>
       <workItem from="1764643126706" duration="5438000" />
-      <workItem from="1764654293766" duration="9853000" />
+      <workItem from="1764654293766" duration="18491000" />
+      <workItem from="1764833872191" duration="339000" />
     </task>
     <task id="LOCAL-00001" summary="build: Vite 제거 및 Webpack 기반 React 프로젝트로 전환">
       <option name="closed" value="true" />
@@ -125,7 +125,23 @@
       <option name="project" value="LOCAL" />
       <updated>1764661315711</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="docs: 프로젝트 문서 수정(폴더구조 추가) 및 /docs/DIRECTORY-STRUCTURE.md 제거.">
+      <option name="closed" value="true" />
+      <created>1764665791107</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1764665791107</updated>
+    </task>
+    <task id="LOCAL-00008" summary="feat: back-end 개발환경 구성">
+      <option name="closed" value="true" />
+      <created>1764665819188</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1764665819188</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -149,6 +165,8 @@
     <MESSAGE value="refactor: front-end / back-end 프로젝트 구조 정리" />
     <MESSAGE value="docs: 프로젝트 전체 요약문서 및 back-end 문서 생성" />
     <MESSAGE value="docs: 프로젝트 전체 요약문서 및 BOARD-SPEC 문서 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="docs: 프로젝트 전체 요약문서 및 BOARD-SPEC 문서 수정" />
+    <MESSAGE value="docs: 프로젝트 문서 수정(폴더구조 추가) 및 /docs/DIRECTORY-STRUCTURE.md 제거." />
+    <MESSAGE value="feat: back-end 개발환경 구성" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: back-end 개발환경 구성" />
   </component>
 </project>
