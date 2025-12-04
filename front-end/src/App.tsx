@@ -1,9 +1,9 @@
 import { Fragment } from 'react'
-import Header from './components/Header'
-import Footer from './components/Footer'
-import List from './components/board/List'
-import View from './components/board/View'
-import Write from './components/board/Write'
+import Header from './components/common/Header'
+import Footer from './components/common/Footer'
+import List from './pages/board/List'
+import View from './pages/board/View'
+import Write from './pages/board/Write'
 import './styles/index.scss'
 
 export default function App() {
