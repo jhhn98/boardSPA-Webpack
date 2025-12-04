@@ -1,18 +1,10 @@
-@use './base/_style-reset';
-@use './base/_variables';
+@use './base/variables';
 @use './base/mixins';
-@use './base/typography';
 @use './base/utilities';
+@use './base/typography';
+@use './base/style-reset';
+@use './base/style-base';
 
-@font-face{
-    font-family:'InspireKR';
-    src:url('../assets/fonts/InspireKR-Regular.woff2') format('woff2');
-    font-weight:400;
-    font-style:normal;
-    font-display:swap;
-}
-
-html,body{font-family:'InspireKR',Arial,Helvetica,sans-serif;}
 //게시판 목록
 .board-function{display:flex;align-items:center;
     .board-post-count{display:flex;flex:0 0 50%;}
