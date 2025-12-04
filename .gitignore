@@ -16,10 +16,10 @@ dist-ssr
 .vscode/*
 !.vscode/extensions.json
 .idea
+.idea/workspace.xml
 .DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
-.idea/workspace.xml
