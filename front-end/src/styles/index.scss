@@ -4,7 +4,12 @@
 @use './base/typography';
 @use './base/style-reset';
 @use './base/style-base';
-
+header{padding:20px;
+    h1{color:#222;font-size:1.75rem;font-weight:700;}
+    h2{color:#666;font-size:1.25rem;font-weight:500;}
+    h1 + h2{margin:10px 0 0;}
+}
+footer{padding:20px;text-align:center;}
 //게시판 목록
 .board-function{display:flex;align-items:center;
     .board-post-count{display:flex;flex:0 0 50%;}
