@@ -1,5 +1,4 @@
 import { iconMap } from './iconMap'
-import type { IconItem } from './types'
 
 interface IconProps {
     name: keyof typeof iconMap;
