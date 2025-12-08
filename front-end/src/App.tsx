@@ -10,9 +10,11 @@ export default function App() {
     return (
         <Fragment>
             <Header/>
-            <List/>
-            <View/>
-            <Write/>
+            <main>
+                <List/>
+                <View/>
+                <Write/>
+            </main>
             <Footer/>
         </Fragment>
     )

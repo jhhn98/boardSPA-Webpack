@@ -15,6 +15,7 @@ footer{padding:20px;text-align:center;}
     .board-post-count{display:flex;flex:0 0 50%;}
     .board-type-toggle{display:flex;justify-content:flex-end;flex:0 0 50%;}
 }
+main{padding:20px;}
 table{width:100%;border:none;border-bottom:1px solid #aaa;border-collapse:collapse;border-spacing:0;
     caption{@extend %visually-hidden;}
     th,td{vertical-align:middle;}
@@ -73,3 +74,4 @@ table{width:100%;border:none;border-bottom:1px solid #aaa;border-collapse:collap
     &__left{justify-content:flex-start;}
     &__right{justify-content:flex-end;}
 }
+.form-input{background:#fafafa;border:1px solid #86868b;border-radius:12px;}
