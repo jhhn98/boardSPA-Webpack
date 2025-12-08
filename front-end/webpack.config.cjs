@@ -38,7 +38,10 @@ module.exports = {
             {
                 test: /\.(png|jpe?g|gif|svg)$/i,
                 type: 'asset/resource',
-                exclude: /src\/.*\.svg$/
+                exclude: /src\/.*\.svg$/,
+                generator: {
+                    filename: 'assets/[hash][ext][query]'
+                }
                 //SVG를 이미지로 처리할때.
             }
         ]
