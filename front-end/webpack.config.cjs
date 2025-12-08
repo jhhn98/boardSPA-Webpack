@@ -30,14 +30,16 @@ module.exports = {
                     'sass-loader'
                 ]
             },
-            {
+            {//SVG를 컴포넌트로 사용하려고 할때 추가.
                 test: /\.svg$/i,
                 issuer: /\.[jt]sx?$/,
                 use: ['@svgr/webpack']
             },
             {
                 test: /\.(png|jpe?g|gif|svg)$/i,
-                type: 'asset/resource'
+                type: 'asset/resource',
+                exclude: /src\/.*\.svg$/
+                //SVG를 이미지로 처리할때.
             }
         ]
     },
