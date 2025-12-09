@@ -1,0 +1,120 @@
+name: BoardSPA CI
+on:
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  frontend-ci:
+    name: Front-End CI (Node ${{ matrix.node-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      metrix:
+        node-version: [18, 20]
+
+    defaults:
+      run:
+        working-directory: ./front-end
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # 캐시 적용 > npm install 시간 크게 단축
+      - name: Cache node modules
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.npm
+            front-end/node_modules
+          key: fe-${{ runner.os }}-${{ matrix.node-version }}-${{ hashFiles('front-end/package-lock.json') }}
+          restore-keys: fe-${{ runner.os }}-
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install FE Dependencies
+        run: npm ci
+
+      # 1. Lint
+      - name: Run ESLint
+        run: npm run lint
+
+      # 2. Prettier
+      - name: Prettier Check
+        run: npm run prettier:check
+
+      # 3. Jest
+      - name: Run Tests
+        run: npm test -- --ci
+
+      # 4. Security
+      - name: Security Audit
+        run: npm audit --audit-level=high
+
+      # 5. Build Test
+      - name: Frontend Build
+        run: npm run build
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+  backend-ci:
+    name: Back-End CI (Node ${{ matrix.node-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18, 20]
+
+    defaults:
+      run:
+        working-derectory: ./back-end
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Cache node modules
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.npm
+            back-end/node_modules
+          key: be-${{ runner.os }}-${{ matrix.node-version }}-${{ hashFiles('back-end/package-lock.json') }}
+          restore-keys: be-${{ runner.os }}-
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install BE Dependencies
+        run: npm ci
+
+      # 1. Lint
+      - name: Run ESLint
+        run: npm run lint
+
+      # 2. Prettier Check
+      - name: Prettier Check
+        run: npm run prettier:check
+
+      # 3. Jest
+      - name: Run Tests
+        run: npm test -- --ci
+
+      # 4. Security
+      - name: Security Audit
+        run: npm audit --audit-level=high
+
+      # 5. Build or Compile TS
+      - name: Backend Build
+        run: |
+          if [ -f "tsconfig.json" ]; then
+            npm run build
+          else
+            echo "No TypeScript build required."
+          fi

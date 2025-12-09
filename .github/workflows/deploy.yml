@@ -1,0 +1,96 @@
+name: BoardSPA CI/CD
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  frontend-build:
+    name: Front-End Build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./front-end # FE 작업 디렉토리 설정
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install FE Dependencies
+        run: npm ci
+
+      - name: Build FE
+        run: npm run build
+
+      - name: Upload FE Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: fe-build
+          path: front-end/dist
+
+  backend-deploy:
+    name: Back-End Deploy
+    needs: frontend-build # FE 빌드 완료 후 실행
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./back-end
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: install BE Dependencies
+        run: npm ci
+
+      # 배포용 서버로 백엔드 전송
+      - name: Upload Backend to Server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_KEY }}
+          source: "back-end/*"
+          target: "/var/www/board/backend"
+
+      # 서버에서 PM2 재시작
+      - name: Restart BE Process
+        uses: appleboy/ssh-action@v0.1.7
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_KEY }}
+          script: |
+            cd /var/www/board/backend
+            pm2 restart all
+
+  frontend-deploy:
+    name: Front-End Deploy
+    needs: frontend-build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download FE Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: fe-build
+          path: fe-dist
+
+      - name: Upload FE Build to Server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_KEY }}
+          source: "fe-dist/*"
+          target: "/var/www/board/frontend"
