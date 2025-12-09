@@ -6,77 +6,115 @@ export default function Write() {
             <form>
                 <fieldset>
                     <legend>게시물 작성</legend>
-                    <table className='board-table'>
-                        <caption>게시물 작성-제목, 작성자, 날짜, 내용, 첨부파일 항목</caption>
-                        <tbody>
-                        <tr>
-                            <th scope='row'><label htmlFor='title'>제목</label></th>
-                            <td>
-                                <input type='text' id='title' className='form-input__text'/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope='row'><label htmlFor='date_write'>작성일</label></th>
-                            <td>
-                                <div className='form-input__date'>
-                                    <input type='date' id='date_write'/>
+                    <ul className='post-what editor'>
+                        <li className='title'>
+                            <strong id='postTitle'><label htmlFor='title'>제목</label></strong>
+                            <div aria-labelledby='postTitle'>
+                                <div className='form-element'>
+                                    <input type='text' id='title' className='input-text'/>
                                 </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope='row'>공지기간</th>
-                            <td>
-                                <div className='form-input__date'>
-                                    <label htmlFor='date_notice_start'>공지시작일</label>
-                                    <input type='date' id='date_notice_start'/>
+                            </div>
+                        </li>
+                        <li className='date'>
+                            <strong id='postDate'><label htmlFor='date_write'>작성일</label></strong>
+                            <div aria-labelledby='postDate'>
+                                {/**
+                                 날짜.. datePicker
+                                 */}
+                                <div className='form-element'>
+                                    <input type='text' id='date_write' readOnly value='2025-12-09' className='input-date'/>
                                 </div>
-                                <div className='form-input__date'>
-                                    <label htmlFor='date_notice_end'>공지종료일</label>
-                                    <input type='date' id='date_notice_end'/>
+                            </div>
+                        </li>
+                        <li className='date notice'>
+                            <strong id='postDate'>공지기간</strong>
+                            <div aria-labelledby='postDate'>
+                                {/**
+                                 날짜 단일 선택
+                                 */}
+                                <div className='form-element'>
+                                    <div className='date-picker'>
+                                        <label htmlFor='datePicker1'>공지일</label>
+                                        <input type='date' id='datePicker1' className='input-date'/>
+                                    </div>
                                 </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope='row'><label htmlFor='author'>작성자</label></th>
-                            <td>
-                                <input type='text' id='author' className='form-input__text'/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope='row'><label htmlFor='content'>내용</label></th>
-                            <td>
-                                <textarea id='content' className='form-textarea'/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope='row'>첨부파일</th>
-                            <td>
+
+                                {/**
+                                 날짜 다중 선택
+                                 */}
+                                <div className='form-element'>
+                                    <div className='date-picker'>
+                                        <label htmlFor='datePicker2'>공지일(다중)</label>
+                                        <input type='date' id='datePicker2' className='input-date'/>
+                                    </div>
+                                </div>
+
+                                {/**
+                                 날짜 범위 선택
+                                 */}
+                                <div className='form-element'>
+                                    <div className='date-picker'>
+                                        <label htmlFor='datePicker3_1'>공지시작일</label>
+                                        <input type='date' id='datePicker3_1' className='input-date'/>
+                                    </div>
+                                </div>
+                                <div className='form-element'>
+                                    <div className='date-picker'>
+                                        <label htmlFor='datePicker3_2'>공지종료일</label>
+                                        <input type='date' id='datePicker3_2' className='input-date'/>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li className='author'>
+                            <strong id='postAuthor'><label htmlFor='author'>작성자</label></strong>
+                            <div aria-labelledby='postAuthor'>
+                                <div className='form-element'>
+                                    <input type='text' id='author' className='input-text'/>
+                                </div>
+                            </div>
+                        </li>
+                        <li className='content'>
+                            <strong id='postContent'><label htmlFor='content'>내용</label></strong>
+                            <div aria-labelledby='postContent'>
+                                <div className='form-element'>
+                                    <textarea id='content' className='textarea'/>
+                                </div>
+                            </div>
+                        </li>
+                        <li className='attachment'>
+                            <strong id='postAttachment'>첨부파일</strong>
+                            <div aria-labelledby='postAttachment'>
+                                {/**
+                                 첨부파일 최초 입력란에는 + 버튼만 추가
+                                 두번째 입력란부터는 +, - 버튼 추가
+                                 입력란 추가는 최대 10개까지 기본값으로 최대갯수는 옵션으로 받아 설정할 수 있음.
+                                 */}
                                 <div className='form-attachment'>
-                                    <div className='form-attachment__element'>
+                                    <div className='form-element'>
                                         <label htmlFor='file1'>File1</label>
-                                        <input type='file' id='file1'/>
+                                        <input type='file' id='file1' className='input-file'/>
                                         <button type='button'>+</button>
                                     </div>
-                                    <div className='form-attachment__element'>
+                                    <div className='form-element'>
                                         <label htmlFor='file2'>File2</label>
-                                        <input type='file' id='file2'/>
+                                        <input type='file' id='file2' className='input-file'/>
                                         <button type='button'>+</button>
                                         <button type='button'>-</button>
                                     </div>
                                 </div>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
+                            </div>
+                        </li>
+                    </ul>
                     {/*
                         date picker, file input, input, textarea
                         수정폼을 따로 만들어야하나..
                     */}
-                    <div className='board-actions margin-top-20'>
-                        <div className='board-actions__left'>
+                    <div className='post-actions margin-top-20'>
+                        <div className='block-left'>
                             <button type='submit' className='handle-button save'>저장</button>
                         </div>
-                        <div className='board-actions__right'>
+                        <div className='block-right'>
                             <a href='' className='handle-anchor list'>목록</a>
                         </div>
                     </div>
