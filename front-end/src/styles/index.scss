@@ -65,13 +65,19 @@ table{width:100%;border:none;border-bottom:1px solid #aaa;border-collapse:collap
     &.delete{background: #e30044;color:#fff;}
 }
 .board-post-navigation{display:flex;align-items:center;
-    &__prev,&__next{display:flex;align-items:center;flex:0 0 50%;padding:10px 20px;}
-    &__prev{justify-content:flex-end;}
-    &__next{justify-content:flex-start;}
+    .previous,.next{display:flex;align-items:center;flex:0 0 50%;padding:10px 20px;}
+    .previous{justify-content:flex-end;}
+    .next{justify-content:flex-start;}
 }
-.board-actions{display:flex;align-items:center;
-    &__left,&__right{display:flex;flex:0 0 50%;}
-    &__left{justify-content:flex-start;}
-    &__right{justify-content:flex-end;}
+.post-actions{display:flex;align-items:center;
+    .block-left,.block-right{display:flex;flex:0 0 50%;}
+    .block-left{justify-content:flex-start;}
+    .block-right{justify-content:flex-end;}
 }
-.form-input{background:#fafafa;border:1px solid #86868b;border-radius:12px;}
+.form-element{padding:10px;background:#fafafa;border:1px solid #c9c9c9;border-radius:12px;
+    .input-text{width:100%;}
+    .textarea{width:100%;min-height:150px;}
+    .date-picker{
+        label{@extend %visually-hidden;}
+    }
+}
