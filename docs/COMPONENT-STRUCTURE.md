@@ -1,25 +1,26 @@
 # 컴포넌트 아키텍처
 ## 공통 요소
-* 프로젝트 이름: h1
-* 페이지 제목: h2
-* 버튼: button - 폼데이터 submit, button onClick 핸들이벤트
-* 링크: a - 페이지 라우터
-* 폼 요소:
-  * form
-  * fieldset
-  * legend
-  * input 컴포넌트 안에서 분기처리
-    * text
-    * password
-    * number
-    * date
-    * custom datePicker 제작해서 사용.
-    * checkbox
-    * radio
-    * file
-    * custom file..? 제작해서 사용.
-    * textarea 등등
+| 컴포넌트                  | 경로         | 태그               | 속성             | 설명                                                                                                                                                          |
+|-----------------------|------------|------------------|----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| &lt;ProjectName /&gt; | /component           | &lt;h1&gt;       |                | 프로젝트 이름                                                                                                                                                     |
+| &lt;PageTitle /&gt;   | /component           | &lt;h2&gt;       |                | 페이지 제목                                                                                                                                                      |
+| &lt;Button /&gt;      | /component           | &lt;button&gt;   |                | submit, onClick 등의 핸들 이벤트                                                                                                                                   |
+| &lt;Link /&gt;        | /component           | &lt;a&gt;        |                 | 페이지 라우터                                                                                                                                                     |
+| &lt;Form /&gt;        | /component | &lt;form&gt;     | method, action | 폼                                                                                                                                                           |
+| &lt;Fieldset /&gt;    | /component | &lt;fieldset&gt; |                | 폼 그룹                                                                                                                                                        |
+| &lt;Legend /&gt;      | /component | &lt;legend&gt;   |                   | 폼 그룹 이름                                                                                                                                                     |
+| &lt;Input /&gt;       | /component |  &lt;input /&gt; | type, value      | 폼 요소<br/>type에서 text, password, number, date, datepicker(custom design), checkbox, radio, file, file(custom design), textarea의 타입을 체크하여 상황에 맞는 마크업 요소를 만든다. |
 ## 목록 페이지
+| 컴포넌트                  | 경로         | 태그               | 속성             | 설명                                                                                                                                                          |
+|-----------------------|------------|------------------|----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| &lt;ProjectName /&gt; | /component           | &lt;h1&gt;       |                | 프로젝트 이름                                                                                                                                                     |
+| &lt;PageTitle /&gt;   | /component           | &lt;h2&gt;       |                | 페이지 제목                                                                                                                                                      |
+| &lt;Button /&gt;      | /component           | &lt;button&gt;   |                | submit, onClick 등의 핸들 이벤트                                                                                                                                   |
+| &lt;Link /&gt;        | /component           | &lt;a&gt;        |                 | 페이지 라우터                                                                                                                                                     |
+| &lt;Form /&gt;        | /component | &lt;form&gt;     | method, action | 폼                                                                                                                                                           |
+| &lt;Fieldset /&gt;    | /component | &lt;fieldset&gt; |                | 폼 그룹                                                                                                                                                        |
+| &lt;Legend /&gt;      | /component | &lt;legend&gt;   |                   | 폼 그룹 이름                                                                                                                                                     |
+| &lt;Input /&gt;       | /component |  &lt;input /&gt; | type, value      | 폼 요소<br/>type에서 text, password, number, date, datepicker(custom design), checkbox, radio, file, file(custom design), textarea의 타입을 체크하여 상황에 맞는 마크업 요소를 만든다. |
 * List Header
   * 게시물수 / 페이지수
   * 목록 타입 선택
