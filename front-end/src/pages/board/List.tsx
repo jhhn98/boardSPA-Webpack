@@ -3,9 +3,11 @@ import Icon from '../../components/ui/icons/Icon'
 export default function List() {
     return (
         <Fragment>
-            <div className="board-function margin-bottom-20">
-                <div className="board-post-count">0 / 0</div>
-                <div className="board-type-toggle">
+            <div className="board-function">
+                <div className="block-left">
+                    <span className="board-post-count">0 / 0</span>
+                </div>
+                <div className="block-right">
                     <button type="button" className="handle-button type-table">
                         목록으로 보기
                     </button>
@@ -14,7 +16,7 @@ export default function List() {
                     </button>
                 </div>
             </div>
-            <table className="board-list margin-top-20">
+            <table className="board-list">
                 <caption>게시판 목록-게시물번호, 제목, 작성자, 작성일, 첨부파일, 조회수</caption>
                 <colgroup>
                     <col style={{ width: '50px' }} />

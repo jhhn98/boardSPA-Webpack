@@ -3,8 +3,11 @@ import { Fragment } from 'react'
 export default function View() {
     return (
         <Fragment>
-            <div className="board-function margin-bottom-20">
-                <div className="board-post-count">조회수: 987</div>
+            <div className="post-function">
+                <div className="block-left"></div>
+                <div className="block-right">
+                    <span className="post-count">조회수: 987</span>
+                </div>
             </div>
             <ul className="post-what view">
                 {/* 기본으로 들어가는 클래스명을 못정하겠다..ㅠㅠ 이름짓기 어렵다. */}
