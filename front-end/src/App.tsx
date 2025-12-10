@@ -10,14 +10,14 @@ import './styles/index.scss'
 export default function App() {
     return (
         <Fragment>
-            <Header/>
+            <Header />
             <main>
-                <List/>
-                <View/>
-                <Write/>
-                <Edit/>
+                <List />
+                <View />
+                <Write />
+                <Edit />
             </main>
-            <Footer/>
+            <Footer />
         </Fragment>
     )
 }

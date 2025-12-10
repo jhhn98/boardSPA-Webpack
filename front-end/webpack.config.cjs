@@ -1,4 +1,4 @@
-const path = require("path")
+const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
@@ -8,59 +8,56 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.[contenthash].js',
         clean: true,
-        publicPath: '/'
+        publicPath: '/',
     },
     module: {
         rules: [
             {
                 test: /\.(ts|tsx)$/,
                 exclude: /node_modules/,
-                use: 'ts-loader'
+                use: 'ts-loader',
             },
             {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
-                use: 'babel-loader'
+                use: 'babel-loader',
             },
             {
                 test: /\.s?css$/,
-                use: [
-                    'style-loader',
-                    'css-loader',
-                    'sass-loader'
-                ]
+                use: ['style-loader', 'css-loader', 'sass-loader'],
             },
-            {//SVG를 컴포넌트로 사용하려고 할때 추가.
+            {
+                //SVG를 컴포넌트로 사용하려고 할때 추가.
                 test: /\.svg$/i,
                 issuer: /\.[jt]sx?$/,
-                use: ['@svgr/webpack']
+                use: ['@svgr/webpack'],
             },
             {
                 test: /\.(png|jpe?g|gif|svg)$/i,
                 type: 'asset/resource',
                 exclude: /src\/.*\.svg$/,
                 generator: {
-                    filename: 'assets/[hash][ext][query]'
-                }
+                    filename: 'assets/[hash][ext][query]',
+                },
                 //SVG를 이미지로 처리할때.
-            }
-        ]
+            },
+        ],
     },
     resolve: {
-        extensions: ['.ts','.tsx','.js', '.jsx'],
+        extensions: ['.ts', '.tsx', '.js', '.jsx'],
         alias: {
-            "@assets": path.resolve(__dirname, 'src/assets')
-        }
+            '@assets': path.resolve(__dirname, 'src/assets'),
+        },
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, 'public/index.html')
-        })
+            template: path.resolve(__dirname, 'public/index.html'),
+        }),
     ],
     devServer: {
         port: 5174,
         historyApiFallback: true,
         open: true,
-        hot: true
-    }
+        hot: true,
+    },
 }

@@ -8,7 +8,7 @@ jobs:
     name: Front-End CI (Node ${{ matrix.node-version }})
     runs-on: ubuntu-latest
     strategy:
-      metrix:
+      matrix:
         node-version: [18, 20]
 
     defaults:
@@ -57,11 +57,6 @@ jobs:
       - name: Frontend Build
         run: npm run build
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
   backend-ci:
     name: Back-End CI (Node ${{ matrix.node-version }})
     runs-on: ubuntu-latest
@@ -71,7 +66,7 @@ jobs:
 
     defaults:
       run:
-        working-derectory: ./back-end
+        working-directory: ./back-end
 
     steps:
       - name: Checkout Repository
