@@ -12,20 +12,20 @@ module.exports = {
     },
     module: {
         rules: [
-            {
+            /*{
                 test: /\.(ts|tsx)$/,
                 exclude: /node_modules/,
                 use: 'ts-loader',
+            },*/
+            {
+                test: /\.[jt]sx?$/,
+                exclude: [/node_modules/, /\.test\.[tj]sx?$/],
+                use: 'ts-loader'
             },
             {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: 'babel-loader',
-            },
-            {
-                test: /\.[jt]sx?$/,
-                exclude: [/node_modules/, /\.test\.[tj]sx?$/],
-                use: 'ts-loader'
             },
             {
                 test: /\.s?css$/,
