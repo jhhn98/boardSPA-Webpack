@@ -32,7 +32,7 @@
   * feat: 기능 추가 및 변경
   * refactor: 구조 변경
   * docs: 프로젝트 문서 추가 및 변경
-  * [ directory ]: 
+  * 
 # 백엔드 아키텍처
 * 서버(API): Node.js + Express
 * 데이터 관리: MySQL
