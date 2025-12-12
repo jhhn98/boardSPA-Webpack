@@ -1,5 +1,5 @@
 import { Fragment } from 'react'
-
+import Icon from '../../components/ui/icons/Icon'
 export default function Write() {
     return (
         <Fragment>
@@ -37,8 +37,53 @@ export default function Write() {
                             </div>
                         </li>
                         <li className="date notice">
-                            <strong id="postDate">공지기간</strong>
-                            <div aria-labelledby="postDate">
+                            <strong id="noticeDate">공지기간</strong>
+                            <div aria-labelledby="noticeDate">
+                                <div className="form-element">
+                                    <div className="date-picker">
+                                        <input
+                                            type="text"
+                                            id="DP_YEAR"
+                                            className="year"
+                                            aria-label="년도"
+                                            maxLength={4}
+                                            min={1900}
+                                            max={9999}
+                                        />
+                                        .
+                                        <input
+                                            type="text"
+                                            id="DP_MONTH"
+                                            className="month"
+                                            aria-label="월"
+                                            maxLength={2}
+                                            min={1}
+                                            max={12}
+                                        />
+                                        .
+                                        <input
+                                            type="text"
+                                            id="DP_DAY"
+                                            className="day"
+                                            aria-label="일"
+                                            maxLength={2}
+                                            min={1}
+                                            max={31}
+                                        />
+                                        .
+                                        <button type="button" className="handle-calendar-open">
+                                            <Icon
+                                                name="calendarDay"
+                                                width={16}
+                                                height={16}
+                                                fill="#ff6200"
+                                            />
+                                            <span>달력UI열기</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div aria-labelledby="noticeDate">
                                 {/**
                                  날짜 단일 선택
                                  */}
@@ -52,7 +97,8 @@ export default function Write() {
                                         />
                                     </div>
                                 </div>
-
+                            </div>
+                            <div aria-labelledby="noticeDate">
                                 {/**
                                  날짜 다중 선택
                                  */}
@@ -66,7 +112,8 @@ export default function Write() {
                                         />
                                     </div>
                                 </div>
-
+                            </div>
+                            <div aria-labelledby="noticeDate">
                                 {/**
                                  날짜 범위 선택
                                  */}

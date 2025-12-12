@@ -290,8 +290,23 @@ table {
         min-height: 150px;
     }
     .date-picker {
-        label {
-            @extend %visually-hidden;
+        display: flex;
+        align-items: center;
+        input[type="text"] {
+            display: block;
+            width: 17px;
+            margin: 0 0 0 5px;
+            text-align: right;
+            &.year {
+                width: 34px;
+                margin: 0;
+            }
+        }
+        .handle-calendar-open {
+            cursor: pointer;
+            span {
+                @extend %visually-hidden;
+            }
         }
     }
 }
