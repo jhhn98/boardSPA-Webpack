@@ -1,15 +1,15 @@
 # 컴포넌트 아키텍처
 ## 공통 요소
-| 컴포넌트                  | 경로         | 태그               | 속성             | 설명                                                                                                                                                          |
-|-----------------------|------------|------------------|----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| &lt;ProjectName /&gt; | /component           | &lt;h1&gt;       |                | 프로젝트 이름                                                                                                                                                     |
-| &lt;PageTitle /&gt;   | /component           | &lt;h2&gt;       |                | 페이지 제목                                                                                                                                                      |
-| &lt;Button /&gt;      | /component           | &lt;button&gt;   |                | submit, onClick 등의 핸들 이벤트                                                                                                                                   |
-| &lt;Link /&gt;        | /component           | &lt;a&gt;        |                 | 페이지 라우터                                                                                                                                                     |
-| &lt;Form /&gt;        | /component | &lt;form&gt;     | method, action | 폼                                                                                                                                                           |
-| &lt;Fieldset /&gt;    | /component | &lt;fieldset&gt; |                | 폼 그룹                                                                                                                                                        |
-| &lt;Legend /&gt;      | /component | &lt;legend&gt;   |                   | 폼 그룹 이름                                                                                                                                                     |
-| &lt;Input /&gt;       | /component |  &lt;input /&gt; | type, value      | 폼 요소<br/>type에서 text, password, number, date, datepicker(custom design), checkbox, radio, file, file(custom design), textarea의 타입을 체크하여 상황에 맞는 마크업 요소를 만든다. |
+| 컴포넌트 | 경로          | 반환 태그            | Props          | State                                                                                                                                                       | Dependencies | 설명 |
+|--------|-------------|------------------|----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|-----|
+| &lt;ProjectName /&gt; | /component  | &lt;h1&gt; |                |  |              | 프로젝트 이름                                                                                                                                                     |
+| &lt;PageTitle /&gt;   | /component  | &lt;h2&gt;       |                |  |              | 페이지 제목                                                                                                                                                      |
+| &lt;Button /&gt;      | /component  | &lt;button&gt;   |                |    |              | submit, onClick 등의 핸들 이벤트                                                                                                                                   |
+| &lt;Link /&gt;        | /component  | &lt;a&gt;        |                |      |              | 페이지 라우터                                                                                                                                                     |
+| &lt;Form /&gt;        | /component  | &lt;form&gt;     | method, action                 |                                                                                                                                                             |              | 폼                                                                                                                                                           |
+| &lt;Fieldset /&gt;    | /component  | &lt;fieldset&gt; |                ||              | 폼 그룹                                                                                                                                                        |
+| &lt;Legend /&gt;      | /component  | &lt;legend&gt;   |                |  |              | 폼 그룹 이름                                                                                                                                                     |
+| &lt;Input /&gt;       | /component  | &lt;input /&gt;  | type, value                    ||              | 폼 요소<br/>type에서 text, password, number, date, datepicker(custom design), checkbox, radio, file, file(custom design), textarea의 타입을 체크하여 상황에 맞는 마크업 요소를 만든다. |
 ## 목록 페이지
 | 컴포넌트                 | 경로         | 태그               | 속성             | 설명                                                                                                                                                          |
 |----------------------|------------|------------------|----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -62,6 +62,15 @@
 * Form Footer
   * 저장, 임시저장, 취소(목록으로 가는 링크 a), 목록(a) 버튼 및 링크
 -->
+customDatePicker
+1. 년, 월, 일을 키보드로 접근해서 입력가능해야한다.
+2. 달력아이콘 클릭 또는 키보드로 접근시 달력 UI가 표출되어야한다.
+3. 달력 UI에는 년도와 월, 이전달 다음달 선택버튼, 요일과 날짜 리스트, 초기화와 오늘날짜 선택 버튼, 달력 UI 닫기 버튼이 제공 되어야 한다.
+4. 년도와 월을 버튼으로 제공해 지난 년도와 월을 쉽게 선택할 수 있도록 제공한다.
+5. 
+
+
+
 ## 수정 페이지
 | 컴포넌트                   | 경로         | 태그               | 속성             | 설명                                                                   |
 |------------------------|------------|------------------|----------------|----------------------------------------------------------------------|
