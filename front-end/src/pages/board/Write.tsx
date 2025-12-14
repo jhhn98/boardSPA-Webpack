@@ -39,7 +39,7 @@ export default function Write() {
                         <li className="date notice">
                             <strong id="noticeDate">공지기간</strong>
                             <div aria-labelledby="noticeDate">
-                                <div className="form-element">
+                                <div className="form-element custom-input-date">
                                     <div className="date-picker">
                                         <input
                                             type="text"
@@ -49,8 +49,8 @@ export default function Write() {
                                             maxLength={4}
                                             min={1900}
                                             max={9999}
-                                        />
-                                        .
+                                            placeholder="yyyy"
+                                        />.
                                         <input
                                             type="text"
                                             id="DP_MONTH"
@@ -59,8 +59,8 @@ export default function Write() {
                                             maxLength={2}
                                             min={1}
                                             max={12}
-                                        />
-                                        .
+                                            placeholder="mm"
+                                        />.
                                         <input
                                             type="text"
                                             id="DP_DAY"
@@ -69,17 +69,20 @@ export default function Write() {
                                             maxLength={2}
                                             min={1}
                                             max={31}
-                                        />
-                                        .
+                                            placeholder="dd"
+                                        />.
                                         <button type="button" className="handle-calendar-open">
                                             <Icon
                                                 name="calendarDay"
                                                 width={16}
                                                 height={16}
-                                                fill="#ff6200"
+                                                fill="#ec0044"
                                             />
                                             <span>달력UI열기</span>
                                         </button>
+                                        <div className="calendar-pannel">
+                                            <div className="select-yyyymm"></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

@@ -1,8 +1,16 @@
-// 기본 스타일 선언
+@use './mixins';
 
+// 기본 스타일 선언
 html,
 body {
     font-family: 'InspireKR', Arial, Helvetica, sans-serif;
     font-size: 14px;
     line-height: normal;
+}
+input,
+button,
+a {
+    &:focus {
+        @extend %focus-outline;
+    }
 }

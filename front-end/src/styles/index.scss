@@ -1,4 +1,4 @@
-@use './base/variables';
+@use './base/variables' as *;
 @use './base/mixins';
 @use './base/utilities';
 @use './base/typography';
@@ -227,7 +227,7 @@ table {
     display: inline-block;
     padding: 5px 10px;
     background: #f1f3f5;
-    border-radius: 5px;
+    border-radius: 3px;
     + .handle-anchor {
         margin: 0 0 0 10px;
     }
@@ -236,11 +236,11 @@ table {
         color: #fff;
     }
     &.edit {
-        background: #0d6dca;
+        background: $color-primary;
         color: #fff;
     }
     &.delete {
-        background: #e30044;
+        background: $color-point;
         color: #fff;
     }
 }
@@ -282,6 +282,9 @@ table {
     background: #fafafa;
     border: 1px solid #c9c9c9;
     border-radius: 12px;
+    &.custom-input-date {
+        width: 170px;
+    }
     .input-text {
         width: 100%;
     }
@@ -292,21 +295,39 @@ table {
     .date-picker {
         display: flex;
         align-items: center;
+        position: relative;
+        width: 150px;
         input[type="text"] {
             display: block;
-            width: 17px;
+            width: 25px;
             margin: 0 0 0 5px;
             text-align: right;
             &.year {
-                width: 34px;
+                width: 40px;
                 margin: 0;
             }
         }
         .handle-calendar-open {
+            flex: 0 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 0 0 10px;
             cursor: pointer;
             span {
                 @extend %visually-hidden;
             }
+        }
+        .calendar-pannel {
+            display: block;
+            position: absolute;
+            top: 20px;
+            left: -11px;
+            z-index: 1;
+            width: 200px;
+            height: 250px;
+            background: #fff;
+            @extend %visual-RoundShadow;
         }
     }
 }

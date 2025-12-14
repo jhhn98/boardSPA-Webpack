@@ -9,3 +9,12 @@
     clip: rect(0, 0, 0, 0);
     border: 0;
 }
+%focus-outline {
+    outline: 1px dashed #0d6dca;
+    border-radius: 3px;
+}
+%visual-RoundShadow {
+    border: 1px solid #efefef;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
