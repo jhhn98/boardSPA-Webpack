@@ -26,6 +26,9 @@ import LocationAltFill from '@assets/icons/location-alt-fill.svg'
 import Minus from '@assets/icons/minus.svg'
 import Paw from '@assets/icons/paw.svg'
 import Plus from '@assets/icons/plus.svg'
+import Apps from '@assets/icons/apps.svg'
+import Grid from '@assets/icons/grid.svg'
+import QuestionCheck from '@assets/icons/question-check.svg'
 
 export const iconMap: Record<string, IconItem> = {
     angleLeft: { type: 'svg', component: AngleLeft },
@@ -55,4 +58,7 @@ export const iconMap: Record<string, IconItem> = {
     minus: { type: 'svg', component: Minus },
     paw: { type: 'svg', component: Paw },
     plus: { type: 'svg', component: Plus },
+    apps: { type: 'svg', component: Apps },
+    grid: { type: 'svg', component: Grid },
+    questionCheck: { type: 'svg', component: QuestionCheck },
 } as const
