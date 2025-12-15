@@ -283,6 +283,9 @@ table {
     &.custom-input-date {
         width: 170px;
     }
+    &.custom-input-file {
+        width: 100%;
+    }
     .input-text {
         width: 100%;
     }
@@ -317,7 +320,7 @@ table {
             }
         }
         .calendar-panel {
-            display: block;
+            display: none;
             position: absolute;
             top: 20px;
             left: -11px;
@@ -464,6 +467,96 @@ table {
                         height: 60px;
                     }
                 }
+            }
+        }
+    }
+    .file-picker {
+        display: flex;
+        align-items: stretch;
+        .file-dropzone {
+            flex: 0 0 46%;
+            text-align: center;
+            .file-dropzone-pick {
+                input[type="file"] {
+                    display: none;
+                }
+            }
+        }
+        .file-queue {
+            flex: 0 0 calc(34% - 20px);
+            width: calc(34% - 20px);
+            margin: 0 10px;
+            padding: 5px 10px;
+            background: #fff;
+            border-radius: 10px;
+            .file-queue-item {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                padding: 5px 0;
+                em {
+                    font-style: normal;
+                }
+                .name {
+                    display: flex;
+                    flex: 0 0 calc(85% - 25px);
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    .file-name {
+                        display: block;
+                        flex: 0 0 calc(100% - 50px);
+                        width: calc(100% - 50px);
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                    }
+                    .extension {
+                        display: block;
+                        flex: 0 0 50px;
+                        width: 50px;
+                    }
+                }
+                .meta {
+                    display: block;
+                    flex: 0 0 15%;
+                }
+                .file-item-remove {
+                    display: block;
+                    flex: 0 0 20px;
+                    height: 20px;
+                    margin: 0 0 0 5px;
+                    span {
+                        @extend %visually-hidden;
+                    }
+                }
+            }
+        }
+        .file-actions {
+            flex: 0 0 20%;
+            display: flex;
+            align-items: stretch;
+            justify-content: center;
+            button {
+                flex: 0 0 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                svg {
+                    display: block;
+                    margin:0 0 0 5px;
+                    fill: #fff;
+                }
+            }
+            .submit {
+                background: $color-primary;
+                border-radius:10px 0 0 10px;
+                color: #fff;
+            }
+            .cancel {
+                background: $color-muted;
+                border-radius:0 10px 10px 0;
+                color: #fff;
             }
         }
     }
