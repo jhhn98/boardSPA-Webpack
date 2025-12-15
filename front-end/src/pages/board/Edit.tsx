@@ -3,12 +3,13 @@ import { Fragment } from 'react'
 export default function Write() {
     return (
         <Fragment>
+            <h2>&#39;게시물 제목&#39; 수정하기</h2>
             <form>
                 <fieldset>
                     <legend>게시물 작성</legend>
                     <ul className="post-what editor">
                         <li className="title">
-                            <strong id="postTitle">
+                            <strong id="postTitle" className="form-label">
                                 <label htmlFor="title">제목</label>
                             </strong>
                             <div aria-labelledby="postTitle">
@@ -18,7 +19,7 @@ export default function Write() {
                             </div>
                         </li>
                         <li className="date">
-                            <strong id="postDate">
+                            <strong id="postDate" className="form-label">
                                 <label htmlFor="date_write">작성일</label>
                             </strong>
                             <div aria-labelledby="postDate">
@@ -31,13 +32,15 @@ export default function Write() {
                                         id="date_write"
                                         readOnly
                                         value="2025-12-09"
-                                        className="input-date"
+                                        className="input-text"
                                     />
                                 </div>
                             </div>
                         </li>
                         <li className="date notice">
-                            <strong id="postDate">공지기간</strong>
+                            <strong id="postDate" className="form-label">
+                                공지기간
+                            </strong>
                             <div aria-labelledby="postDate">
                                 {/**
                                  날짜 단일 선택
@@ -93,7 +96,7 @@ export default function Write() {
                             </div>
                         </li>
                         <li className="author">
-                            <strong id="postAuthor">
+                            <strong id="postAuthor" className="form-label">
                                 <label htmlFor="author">작성자</label>
                             </strong>
                             <div aria-labelledby="postAuthor">
@@ -103,7 +106,7 @@ export default function Write() {
                             </div>
                         </li>
                         <li className="content">
-                            <strong id="postContent">
+                            <strong id="postContent" className="form-label">
                                 <label htmlFor="content">내용</label>
                             </strong>
                             <div aria-labelledby="postContent">
@@ -113,7 +116,9 @@ export default function Write() {
                             </div>
                         </li>
                         <li className="attachment">
-                            <strong id="postAttachment">첨부파일</strong>
+                            <strong id="postAttachment" className="form-label">
+                                첨부파일
+                            </strong>
                             <div aria-labelledby="postAttachment">
                                 {/**
                                  첨부파일 최초 입력란에는 + 버튼만 추가

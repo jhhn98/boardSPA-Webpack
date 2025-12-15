@@ -15,7 +15,9 @@ export default function App() {
                 <List />
                 <View />
                 <Write />
-                <Edit />
+                {/**
+                 <Edit />
+                 */}
             </main>
             <Footer />
         </Fragment>

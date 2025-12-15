@@ -3,6 +3,7 @@ import { Fragment } from 'react'
 export default function View() {
     return (
         <Fragment>
+            <h2>&#39;게시물 제목&#39; 상세보기</h2>
             <div className="post-function">
                 <div className="block-left"></div>
                 <div className="block-right">

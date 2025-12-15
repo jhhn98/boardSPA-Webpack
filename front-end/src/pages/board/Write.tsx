@@ -1,169 +1,49 @@
 import { Fragment } from 'react'
 import Icon from '../../components/ui/icons/Icon'
+import Input from '../../components/ui/Input'
+import DatePicker from '../../components/ui/DatePicker/DatePicker'
+import FormField from '../../components/ui/FormField'
+import Textarea from '../../components/ui/Textarea'
 export default function Write() {
     return (
         <Fragment>
+            <h2>&#39;게시판 이름&#39; 게시물 작성</h2>
             <form>
                 <fieldset>
                     <legend>게시물 작성</legend>
                     <ul className="post-what editor">
                         <li className="title">
-                            <strong id="postTitle">
-                                <label htmlFor="title">제목</label>
-                            </strong>
-                            <div aria-labelledby="postTitle">
-                                <div className="form-element">
-                                    <input type="text" id="title" className="input-text" />
-                                </div>
-                            </div>
+                            <FormField label="제목" htmlFor="title">
+                                <Input id="title" />
+                            </FormField>
                         </li>
                         <li className="date">
-                            <strong id="postDate">
-                                <label htmlFor="date_write">작성일</label>
-                            </strong>
-                            <div aria-labelledby="postDate">
-                                {/**
-                                 날짜.. datePicker
-                                 */}
-                                <div className="form-element">
-                                    <input
-                                        type="text"
-                                        id="date_write"
-                                        readOnly
-                                        value="2025-12-09"
-                                        className="input-date"
-                                    />
-                                </div>
-                            </div>
+                            <FormField label="작성일" htmlFor="date_write">
+                                <Input id="date_write" readOnly value="2025-12-09" />
+                            </FormField>
                         </li>
                         <li className="date notice">
-                            <strong id="noticeDate">공지기간</strong>
+                            <strong id="noticeDate" className="form-label">
+                                공지기간
+                            </strong>
                             <div aria-labelledby="noticeDate">
-                                <div className="form-element custom-input-date">
-                                    <div className="date-picker">
-                                        <input
-                                            type="text"
-                                            id="DP_YEAR"
-                                            className="year"
-                                            aria-label="년도"
-                                            maxLength={4}
-                                            min={1900}
-                                            max={9999}
-                                            placeholder="yyyy"
-                                        />.
-                                        <input
-                                            type="text"
-                                            id="DP_MONTH"
-                                            className="month"
-                                            aria-label="월"
-                                            maxLength={2}
-                                            min={1}
-                                            max={12}
-                                            placeholder="mm"
-                                        />.
-                                        <input
-                                            type="text"
-                                            id="DP_DAY"
-                                            className="day"
-                                            aria-label="일"
-                                            maxLength={2}
-                                            min={1}
-                                            max={31}
-                                            placeholder="dd"
-                                        />.
-                                        <button type="button" className="handle-calendar-open">
-                                            <Icon
-                                                name="calendarDay"
-                                                width={16}
-                                                height={16}
-                                                fill="#ec0044"
-                                            />
-                                            <span>달력UI열기</span>
-                                        </button>
-                                        <div className="calendar-pannel">
-                                            <div className="select-yyyymm"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div aria-labelledby="noticeDate">
-                                {/**
-                                 날짜 단일 선택
-                                 */}
-                                <div className="form-element">
-                                    <div className="date-picker">
-                                        <label htmlFor="datePicker1">공지일</label>
-                                        <input
-                                            type="date"
-                                            id="datePicker1"
-                                            className="input-date"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-                            <div aria-labelledby="noticeDate">
-                                {/**
-                                 날짜 다중 선택
-                                 */}
-                                <div className="form-element">
-                                    <div className="date-picker">
-                                        <label htmlFor="datePicker2">공지일(다중)</label>
-                                        <input
-                                            type="date"
-                                            id="datePicker2"
-                                            className="input-date"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-                            <div aria-labelledby="noticeDate">
-                                {/**
-                                 날짜 범위 선택
-                                 */}
-                                <div className="form-element">
-                                    <div className="date-picker">
-                                        <label htmlFor="datePicker3_1">공지시작일</label>
-                                        <input
-                                            type="date"
-                                            id="datePicker3_1"
-                                            className="input-date"
-                                        />
-                                    </div>
-                                </div>
-                                <div className="form-element">
-                                    <div className="date-picker">
-                                        <label htmlFor="datePicker3_2">공지종료일</label>
-                                        <input
-                                            type="date"
-                                            id="datePicker3_2"
-                                            className="input-date"
-                                        />
-                                    </div>
-                                </div>
+                                <DatePicker />
                             </div>
                         </li>
                         <li className="author">
-                            <strong id="postAuthor">
-                                <label htmlFor="author">작성자</label>
-                            </strong>
-                            <div aria-labelledby="postAuthor">
-                                <div className="form-element">
-                                    <input type="text" id="author" className="input-text" />
-                                </div>
-                            </div>
+                            <FormField label="작성자" htmlFor="author">
+                                <Input id="author" />
+                            </FormField>
                         </li>
                         <li className="content">
-                            <strong id="postContent">
-                                <label htmlFor="content">내용</label>
-                            </strong>
-                            <div aria-labelledby="postContent">
-                                <div className="form-element">
-                                    <textarea id="content" className="textarea" />
-                                </div>
-                            </div>
+                            <FormField label="내용" htmlFor="content">
+                                <Textarea id="content" />
+                            </FormField>
                         </li>
                         <li className="attachment">
-                            <strong id="postAttachment">첨부파일</strong>
+                            <strong id="postAttachment" className="form-label">
+                                첨부파일
+                            </strong>
                             <div aria-labelledby="postAttachment">
                                 {/**
                                  첨부파일 최초 입력란에는 + 버튼만 추가
