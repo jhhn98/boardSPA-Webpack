@@ -10,10 +10,13 @@
     │   ├── assets // 웹폰트, svg아이콘
     │   ├── components
     │   │   ├── common // 페이지 공통으로 들어가는 레이아웃 요소
-    │   │   └── ui
+    │   │   └── ui // 작은 단위의 구성요소들 컴포넌트
     │   ├── data // 임시 데이터
-    │   ├── styles
-    │   ├── types
+    │   ├── hooks // 커스텀 훅
+    │   ├── pages // 라우팅
+    │   ├── styles // css, scss 파일
+    │   ├── state // 상태관리 
+    │   ├── types // 공용으로 쓰는 타입. 컴포넌트 전용으로 쓰는 타입은 각 컴포넌트 파일과 동일한 디렉토리에 넣는다.
     │   ├── App.tsx
     │   └── main.tsx
     ├── package.json

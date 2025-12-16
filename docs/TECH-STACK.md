@@ -14,7 +14,7 @@
 * 라우팅: CSR, Lazy Loading, Code splitting
 * 버전관리: Git
 * CI/CD: Git Actions
-* 테스트: 
+* 테스트: Jest
 ## 코딩 컨벤션
 ### 네이밍 규칙
 * Component
