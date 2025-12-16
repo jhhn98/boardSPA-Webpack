@@ -1,5 +1,4 @@
 import { Fragment } from 'react'
-import Icon from '../../components/ui/icons/Icon'
 import Pagination from '../../components/ui/Pagination'
 export default function List() {
     return (
@@ -47,7 +46,7 @@ export default function List() {
                         <td className="text-align-left">
                             <a href="">게시물 테스트입니다.</a>
                         </td>
-                        <td>홍길동</td>
+                        <td>관리자</td>
                         <td>2025-10-04</td>
                         <td>
                             <button type="button" className="handle-button">
