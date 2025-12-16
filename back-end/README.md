@@ -1,4 +1,7 @@
 # boardSPA: Express + MySQL API Server
+## 개발환경
+* 서버(API): Node.js + Express
+* 데이터 관리: MySQL
 ## 프로젝트 구조
 ```bash
     ├── node_modules // Express 서버 진입점
