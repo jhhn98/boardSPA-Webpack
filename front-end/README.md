@@ -1,18 +1,21 @@
 # boardSPA: React + Webpack
 
-## 프로젝트 구조
+## 프론트엔드 프로젝트 구조
 
 ```bash
     ├── node_modules
     ├── public
     │   └── index.html
     ├── src
-    │   ├── assets
+    │   ├── assets // 웹폰트, svg아이콘
     │   ├── components
+    │   │   ├── common // 페이지 공통으로 들어가는 레이아웃 요소
+    │   │   └── ui
     │   ├── data // 임시 데이터
     │   ├── styles
+    │   ├── types
     │   ├── App.tsx
-    │   ├── main.tsx
+    │   └── main.tsx
     ├── package.json
     └── webpack.config.cjs
 ```
