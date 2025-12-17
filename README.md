@@ -11,3 +11,4 @@
 * 기술 스택: [TECH-STACK.md](./docs/TECH-STACK.md)
 * 컴포넌트 구조: [COMPONENT-STRUCTURE.md](./docs/COMPONENT-STRUCTURE.md)
 * 디렉토리 구조: [DIRECTORY-STRUCTURE.md](./docs/DIRECTORY-STRUCTURE.md)
+<!--git test-->
