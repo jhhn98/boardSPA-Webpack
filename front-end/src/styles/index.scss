@@ -320,16 +320,19 @@ table {
             }
         }
         .calendar-panel {
-            display: none;
             position: absolute;
             top: 20px;
             left: -11px;
-            z-index: 1;
             width: 200px;
             height: 250px;
             background: #fff;
             @extend %visual-RoundShadow;
             font-size: 12px;
+            opacity: 0;
+            @extend %animation-visibility-hidden;
+            &.is-open {
+                @extend %animation-visibility-visible;
+            }
         }
         .calendar-panel-header {
             display: flex;
@@ -390,10 +393,10 @@ table {
                 position: absolute;
                 top: 0;
                 left: 0;
-                z-index: 0;
-                opacity: 0;
                 padding:17px 10px;
-                transition: opacity 0.3s ease-in-out;
+                &.is-close {
+                    @extend %animation-visibility-hidden;
+                }
                 .weekly {
                     display: flex;
                     li {
@@ -423,13 +426,14 @@ table {
                 position: absolute;
                 top: 0;
                 left: 0;
-                z-index: 1;
-                opacity: 1;
                 height: 100%;
                 overflow: hidden;
                 overflow-y: auto;
                 padding: 0 0 0 10px;
-                transition: opacity 0.3s ease-in-out;
+                @extend %animation-visibility-hidden;
+                &.is-open {
+                    @extend %animation-visibility-visible;
+                }
                 button {
                     display: block;
                     width: 100%;
@@ -475,11 +479,29 @@ table {
         align-items: stretch;
         .file-dropzone {
             flex: 0 0 46%;
+            flex-wrap: wrap;
+            display: flex;
+            align-items: center;
+            position:relative;
             text-align: center;
+            .file-dropzone-comment {
+                flex: 0 0 100%;
+                margin:0 0 5px;
+            }
             .file-dropzone-pick {
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                cursor: pointer;
                 input[type="file"] {
                     display: none;
                 }
+            }
+            .file-dropzone-pick-comment {
+                flex: 0 0 100%;
             }
         }
         .file-queue {

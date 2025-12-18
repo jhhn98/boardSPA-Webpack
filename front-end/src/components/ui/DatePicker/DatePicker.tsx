@@ -1,6 +1,68 @@
+import { useState } from 'react'
 import Icon from '../icons/Icon'
 
 export default function DatePicker() {
+    const today = new Date() // 오늘 날짜
+    const [year, setYear] = useState(String(today.getFullYear()).padStart(4, '0')) // today 년도
+    const [month, setMonth] = useState(String(today.getMonth() + 1).padStart(2, '0')) // today 월
+    const [day, setDay] = useState(String(today.getDate()).padStart(2, '0')) // today 일
+    const [calendarPanelState, setCalendarPanelState] = useState(false) // 달력 패널 상태
+    const [calendarMonthsState, setCalendarMonthsState] = useState(false) // 패널 속 달 선택 레이어 상태
+    /**
+     * 날짜 계산시 필요한 것
+     * 이번달이 몇일까지 있는지
+     * 1일이 무슨 요일인지
+     * 1일 이전, 마지막일 다음으로 몇칸을 채워야하는지
+     */
+    /*const lastDay = new Date(year, month, 0).getDate()
+    const firstDay = new Date(year, month - 1, 1).getDay()*/
+
+    function onlyNumber(value: string) {
+        return value.replace(/\D/g, '')
+    }
+    function clamp(num: number, min: number, max: number) {
+        return Math.min(max, Math.max(min, num))
+    }
+    function pad(value: number, length: number) {
+        return String(value).padStart(length, '0')
+    }
+
+    function createNumberHandlers({
+        value,
+        setValue,
+        min,
+        max,
+        maxLength,
+    }: {
+        value: string
+        setValue: (val: string) => void
+        min: number
+        max: number
+        maxLength: number
+    }) {
+        return {
+            onChange(e: React.ChangeEvent<HTMLInputElement>) {
+                const val = onlyNumber(e.target.value).slice(0, maxLength)
+                setValue(val)
+            },
+            onKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
+                if (e.key !== 'ArrowUp' && e.key !== 'ArrowDown') return
+                e.preventDefault()
+                const current = value === '' ? min : Number(value)
+                const next =
+                    e.key === 'ArrowUp'
+                        ? clamp(current + 1, min, max)
+                        : clamp(current - 1, min, max)
+                setValue(pad(next, maxLength))
+            },
+            onBlur() {
+                if (value === '') return
+                const num = clamp(Number(value), min, max)
+                setValue(pad(num, maxLength))
+            },
+        }
+    }
+
     return (
         <div className="form-element custom-input-date">
             <div className="date-picker">
@@ -10,9 +72,14 @@ export default function DatePicker() {
                     className="year"
                     aria-label="년도"
                     maxLength={4}
-                    min={1900}
-                    max={9999}
-                    placeholder="yyyy"
+                    value={year}
+                    {...createNumberHandlers({
+                        value: year,
+                        setValue: setYear,
+                        min: 0,
+                        max: 9999,
+                        maxLength: 4,
+                    })}
                 />
                 .
                 <input
@@ -21,9 +88,14 @@ export default function DatePicker() {
                     className="month"
                     aria-label="월"
                     maxLength={2}
-                    min={1}
-                    max={12}
-                    placeholder="mm"
+                    value={month}
+                    {...createNumberHandlers({
+                        value: month,
+                        setValue: setMonth,
+                        min: 1,
+                        max: 12,
+                        maxLength: 2,
+                    })}
                 />
                 .
                 <input
@@ -32,21 +104,38 @@ export default function DatePicker() {
                     className="day"
                     aria-label="일"
                     maxLength={2}
-                    min={1}
-                    max={31}
-                    placeholder="dd"
+                    value={day}
+                    {...createNumberHandlers({
+                        value: day,
+                        setValue: setDay,
+                        min: 1,
+                        max: 31,
+                        maxLength: 2,
+                    })}
                 />
                 .
-                <button type="button" className="handle-calendar-open">
+                <button
+                    type="button"
+                    className="handle-calendar-open"
+                    aria-expanded={calendarPanelState}
+                    onClick={() => setCalendarPanelState((s) => !s)}
+                >
                     <Icon name="calendarDay" width={16} height={16} fill="#ec0044" />
                     <span>달력UI열기</span>
                 </button>
-                <div className="calendar-panel">
+                <div
+                    className={`calendar-panel ${calendarPanelState ? 'is-open' : ''}`}
+                    aria-hidden={!calendarPanelState}
+                >
                     <div className="calendar-panel-header">
                         <div className="header-left">
-                            <button type="button" className="handle-months-open">
+                            <button
+                                type="button"
+                                className="handle-months-open"
+                                onClick={() => setCalendarMonthsState((s) => !s)}
+                            >
                                 <span>년도,월선택</span>
-                                2025년 12월
+                                {year}년 {month}월
                                 <Icon name="grid" width={12} height={12} fill="#999" />
                             </button>
                         </div>
@@ -65,7 +154,7 @@ export default function DatePicker() {
                         {/**
                          날짜 버튼 클릭시 초기 보여질 달력화면
                          */}
-                        <div className="calendar-days">
+                        <div className={`calendar-days ${calendarMonthsState ? 'is-close' : ''}`}>
                             <ul className="weekly">
                                 <li>일</li>
                                 <li>월</li>
@@ -186,7 +275,7 @@ export default function DatePicker() {
                         {/**
                          calendar-panel-header의 selectYM 버튼 클릭시 보여질 년도, 월 선택 화면
                          */}
-                        <div className="calendar-months">
+                        <div className={`calendar-months ${calendarMonthsState ? 'is-open' : ''}`}>
                             <ul className="list-year">
                                 <li>
                                     <button type="button" className="handle-year">
