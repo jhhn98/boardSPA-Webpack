@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Icon from '../icons/Icon'
+import Icon from '../icon/Icon'
 
 export default function DatePicker() {
     const today = new Date() // 오늘 날짜

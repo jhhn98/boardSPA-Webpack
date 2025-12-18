@@ -1,4 +1,4 @@
-import Icon from './icons/Icon'
+import Icon from './icon/Icon'
 
 export default function Pagination() {
     return (
