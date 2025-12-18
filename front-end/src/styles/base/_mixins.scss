@@ -18,3 +18,18 @@
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
+%animation-visibility-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-4px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s step-end;
+}
+%animation-visibility-visible {
+    z-index:1;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s;
+}
