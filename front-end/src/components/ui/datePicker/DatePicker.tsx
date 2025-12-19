@@ -1,28 +1,122 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Icon from '../icon/Icon'
 
-export default function DatePicker() {
+export function DatePicker() {
     const today = new Date() // 오늘 날짜
     const [year, setYear] = useState(String(today.getFullYear()).padStart(4, '0')) // today 년도
     const [month, setMonth] = useState(String(today.getMonth() + 1).padStart(2, '0')) // today 월
     const [day, setDay] = useState(String(today.getDate()).padStart(2, '0')) // today 일
     const [calendarPanelState, setCalendarPanelState] = useState(false) // 달력 패널 상태
     const [calendarMonthsState, setCalendarMonthsState] = useState(false) // 패널 속 달 선택 레이어 상태
+    const numericYear = Number(year)
+    const numericMonth = Number(month)
+    const [visibleYears, setVisibleYears] = useState<number[]>([])
+    const [activeYear, setActiveYear] = useState<number>(numericYear)
+
+    useEffect(() => {
+        const baseYear = numericYear
+        const range = 3
+        const years: number[] = []
+
+        for (let i = -range; i <= range; i++) {
+            years.push(baseYear + i)
+        }
+        setVisibleYears(years)
+        setActiveYear(baseYear)
+    }, [numericYear])
+
     /**
      * 날짜 계산시 필요한 것
      * 이번달이 몇일까지 있는지
      * 1일이 무슨 요일인지
      * 1일 이전, 마지막일 다음으로 몇칸을 채워야하는지
      */
-    /*const lastDay = new Date(year, month, 0).getDate()
-    const firstDay = new Date(year, month - 1, 1).getDay()*/
+
+    /**
+     * @param year
+     * @param month
+     * 달의 1일이 무슨 요일인지 구하기
+     * 반환값 0: 일요일 / 1: 월요일 / 2: 화요일 / 3: 수요일 / 4: 목요일 / 5: 금요일 / 6: 토요일
+     */
+    function getDayOfWeekIndexOfFirstDate(year: number, month: number): number {
+        const firstDateOfMonth = new Date(year, month - 1, 1)
+        return firstDateOfMonth.getDay()
+    }
+
+    /**
+     * @param year
+     * @param month
+     * 달의 마지막 날짜 구하기
+     */
+    function getLastDateOfMonth(year: number, month: number): number {
+        const lastDateOfMonth = new Date(year, month, 0)
+        return lastDateOfMonth.getDate()
+    }
+
+    /**
+     * 달력 칸 만들기
+     * 7일 x 6주 = 42칸
+     */
+    type CalendarDateCell = {
+        date: number | null
+        isCurrentMonth: boolean
+    }
+
+    /**
+     * @param year
+     * @param month
+     * 날짜 배열 생성 함수
+     */
+    function createCalendarDateCells(year: number, month: number): CalendarDateCell[] {
+        const dayOfWeekIndexOfFirstDate = getDayOfWeekIndexOfFirstDate(year, month)
+        const lastDateOfCurrentMonth = getLastDateOfMonth(year, month)
+        const lastDateOfPreviousMonth = getLastDateOfMonth(
+            month === 1 ? year - 1 : year,
+            month === 1 ? 12 : month - 1,
+        )
+        const totalRequiredCells = dayOfWeekIndexOfFirstDate + lastDateOfCurrentMonth
+        const calendarCellCount = totalRequiredCells > 35 ? 42 : 35
+        const calendarDateCells: CalendarDateCell[] = []
+
+        // 1일 이전, 이전달 날짜 채우기
+        for (let i = dayOfWeekIndexOfFirstDate - 1; i >= 0; i--) {
+            calendarDateCells.push({
+                date: lastDateOfPreviousMonth - i,
+                isCurrentMonth: false,
+            })
+        }
+        // 현재 달 날짜 채우기
+        for (let date = 1; date <= lastDateOfCurrentMonth; date++) {
+            calendarDateCells.push({
+                date,
+                isCurrentMonth: true,
+            })
+        }
+        // 현재 달 마지막 날 이후, 다음달 날짜 채우기
+        let nextMonthDate = 1
+        while (calendarDateCells.length < calendarCellCount) {
+            calendarDateCells.push({
+                date: nextMonthDate,
+                isCurrentMonth: false,
+            })
+            nextMonthDate++
+        }
+        return calendarDateCells
+    }
+
+    const calendarDateCells = createCalendarDateCells(
+        numericYear,
+        numericMonth
+    )
 
     function onlyNumber(value: string) {
         return value.replace(/\D/g, '')
     }
+
     function clamp(num: number, min: number, max: number) {
         return Math.min(max, Math.max(min, num))
     }
+
     function pad(value: number, length: number) {
         return String(value).padStart(length, '0')
     }
@@ -165,7 +259,36 @@ export default function DatePicker() {
                                 <li>토</li>
                             </ul>
                             <ul className="daily">
-                                <li>
+                                {calendarDateCells.map((cell, index) => {
+                                    if (!cell.date) {
+                                        return (
+                                            <li key={index}>
+                                                <span aria-hidden="true" />
+                                            </li>
+                                        )
+                                    }
+                                    const dayOfWeekIndex = new Date(
+                                        Number(year),
+                                        Number(month) - 1,
+                                        cell.date,
+                                    ).getDay()
+
+                                    const weekDayName = ['일', '월', '화', '수', '목', '금', '토'][
+                                        dayOfWeekIndex
+                                        ]
+
+                                    return (
+                                        <li key={index}>
+                                            <button
+                                                type="button"
+                                                aria-label={`${year}년 ${month}월 ${cell.date}일 ${weekDayName}요일`}
+                                            >
+                                                {cell.date}
+                                            </button>
+                                        </li>
+                                    )
+                                })}
+                                {/*<li>
                                     <button type="button">1</button>
                                 </li>
                                 <li>
@@ -269,7 +392,7 @@ export default function DatePicker() {
                                 </li>
                                 <li>
                                     <button type="button">4</button>
-                                </li>
+                                </li>*/}
                             </ul>
                         </div>
                         {/**
@@ -277,7 +400,40 @@ export default function DatePicker() {
                          */}
                         <div className={`calendar-months ${calendarMonthsState ? 'is-open' : ''}`}>
                             <ul className="list-year">
-                                <li>
+                                {visibleYears.map((yearValue) => (
+                                    <li
+                                        key={yearValue}
+                                        className={yearValue === activeYear ? 'is-active' : undefined}
+                                    >
+                                        <button
+                                            type="button"
+                                            className="handle-year"
+                                            onClick={() => setActiveYear(yearValue)}
+                                        >
+                                            {yearValue}년
+                                        </button>
+                                        <ul className="list-month">
+                                            {Array.form({ length: 12 }, (_, index) => {
+                                                const monthValue = index + 1
+                                                return (
+                                                    <li key={monthValue}>
+                                                        <button
+                                                            type="button"
+                                                            onClick={() => {
+                                                                setYear(String(yearValue))
+                                                                setMonth(String(monthValue).padStart(2, '0'))
+                                                                setCalendarMonthsState(false)
+                                                            }}
+                                                        >
+                                                            {monthValue}월
+                                                        </button>
+                                                    </li>
+                                                )
+                                            })}
+                                        </ul>
+                                    </li>
+                                ))}
+                                {/*<li>
                                     <button type="button" className="handle-year">
                                         2019년
                                     </button>
@@ -792,7 +948,7 @@ export default function DatePicker() {
                                             <button type="button">12월</button>
                                         </li>
                                     </ul>
-                                </li>
+                                </li>*/}
                             </ul>
                         </div>
                     </div>

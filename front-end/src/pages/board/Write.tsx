@@ -2,7 +2,7 @@ import { Fragment } from 'react'
 import Input from '../../components/ui/Input'
 import FormField from '../../components/ui/FormField'
 import Textarea from '../../components/ui/Textarea'
-import DatePicker from '../../components/ui/datePicker/DatePicker'
+import { DatePicker } from '../../components/ui/datePicker/DatePicker'
 import FilePicker from '../../components/ui/filePicker/FilePicker'
 export default function Write() {
     return (
