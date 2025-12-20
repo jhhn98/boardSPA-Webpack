@@ -58,6 +58,41 @@ export default function FilePicker() {
         addFiles(e.target.files)
         e.target.value = ''
     }
+    // file 리스트, 제거 버튼 이벤트
+    const formatFileSize = (size: number) => {
+        if (size < 1024) return `${size} B`
+        if (size < 1024 * 1024) return `${Math.round(size / 1024)} KB`
+        return `${(size / (1024 * 1024)).toFixed(1)} MB`
+    }
+    const splitFileName = (filename: string) => {
+        const lastDot = filename.lastIndexOf('.')
+        if (lastDot === -1) {
+            return { name: filename, extension: '' }
+        }
+        return {
+            name: filename.slice(0, lastDot),
+            extension: filename.slice(lastDot),
+        }
+    }
+    const removeFile = (target: File)=> {
+        setFiles((prev) =>
+            prev.filter(
+                (f) => !(f.name === target.name && f.size === target.size)
+            )
+        )
+    }
+    const handleSubmitFiles = () => {
+        const formData = new FormData()
+
+        files.forEach((file) => {
+            formData.append('files', file)
+        })
+
+        console.log('[submit files]', files)
+    }
+    const clearFiles = () => {
+        setFiles([])
+    }
     return (
         <div aria-labelledby="postAttachment">
             <div className="form-element custom-input-file">
@@ -86,7 +121,7 @@ export default function FilePicker() {
                     </div>
                     <div className="file-queue">
                         <ul className="file-queue-list">
-                            <li className="file-queue-item">
+                            {/*<li className="file-queue-item">
                                 <span className="name">
                                     <em className="file-name">
                                         aasdfasdfasdfasdfasdfqwerdgkasjefhqpwoeiufpisudhfkqwjehrlksjdhf
@@ -111,21 +146,102 @@ export default function FilePicker() {
                                 </button>
                             </li>
                             <li className="file-queue-item">
-                                <span className="name">a.html</span>
+                                <span className="name">
+                                    <em className="file-name">aaagb09sdfwefsdf0f00fsdf</em>
+                                    <em className="extension">.html</em>
+                                </span>
                                 <span className="meta">12 KB</span>
                                 <button type="button" className="file-item-remove">
                                     <span>파일 제거</span>
                                     <Icon name="crossSmall" width={20} height={20} />
                                 </button>
                             </li>
+                            <li className="file-queue-item">
+                                <span className="name">
+                                    <em className="file-name">a</em>
+                                    <em className="extension">.html</em>
+                                </span>
+                                <span className="meta">12 KB</span>
+                                <button type="button" className="file-item-remove">
+                                    <span>파일 제거</span>
+                                    <Icon name="crossSmall" width={20} height={20} />
+                                </button>
+                            </li>
+                            <li className="file-queue-item">
+                                <span className="name">
+                                    <em className="file-name">aaagb09sdfwefsdf0f00fsdf</em>
+                                    <em className="extension">.html</em>
+                                </span>
+                                <span className="meta">12 KB</span>
+                                <button type="button" className="file-item-remove">
+                                    <span>파일 제거</span>
+                                    <Icon name="crossSmall" width={20} height={20} />
+                                </button>
+                            </li>
+                            <li className="file-queue-item">
+                                <span className="name">
+                                    <em className="file-name">a</em>
+                                    <em className="extension">.html</em>
+                                </span>
+                                <span className="meta">12 KB</span>
+                                <button type="button" className="file-item-remove">
+                                    <span>파일 제거</span>
+                                    <Icon name="crossSmall" width={20} height={20} />
+                                </button>
+                            </li>
+                            <li className="file-queue-item">
+                                <span className="name">
+                                    <em className="file-name">aaagb09sdfwefsdf0f00fsdf</em>
+                                    <em className="extension">.html</em>
+                                </span>
+                                <span className="meta">12 KB</span>
+                                <button type="button" className="file-item-remove">
+                                    <span>파일 제거</span>
+                                    <Icon name="crossSmall" width={20} height={20} />
+                                </button>
+                            </li>*/}
+                            {files.map((file) => {
+                                const { name, extension } = splitFileName(file.name)
+
+                                return (
+                                    <li
+                                        key={`${file.name}-${file.size}`}
+                                        className="file-queue-item"
+                                    >
+                                        <span className="name">
+                                            <span className="file-name">{name}</span>
+                                            {extension && <span className="extension">{extension}</span>}
+                                        </span>
+                                        <span className="meta">{formatFileSize(file.size)}</span>
+                                        <button
+                                            type="button"
+                                            className="file-item-remove"
+                                            onClick={() => removeFile(file)}
+                                            aria-label="파일 제거"
+                                        >
+                                            <span>파일 제거</span>
+                                            <Icon name="crossSmall" width={20} height={20} />
+                                        </button>
+
+                                    </li>
+                                )
+                            })}
                         </ul>
                     </div>
                     <div className="file-actions">
-                        <button type="button" className="submit">
+                        <button
+                            type="button"
+                            className="submit"
+                            onClick={handleSubmitFiles}
+                        >
                             <span>첨부하기</span>
                             <Icon name="diskArrowRight" width={20} height={20} />
                         </button>
-                        <button type="button" className="cancel">
+                        <button
+                            type="button"
+                            className="cancel"
+                            onClick={clearFiles}
+                        >
                             <span>전체 취소</span>
                             <Icon name="diskXMark" width={20} height={20} />
                         </button>
