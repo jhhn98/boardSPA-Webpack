@@ -9,12 +9,15 @@ export default function List() {
                     <span className="board-post-count">0 / 0</span>
                 </div>
                 <div className="block-right">
+                    {/**
+                     추가기능
                     <button type="button" className="handle-button type-table">
                         목록으로 보기
                     </button>
                     <button type="button" className="handle-button type-thumbnail">
                         썸네일로 보기
                     </button>
+                    */}
                 </div>
             </div>
             <table className="board-list">
