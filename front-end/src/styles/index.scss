@@ -417,6 +417,27 @@ table {
                         flex: 0 0 calc(100% / 7);
                         padding: 2px 0;
                         text-align: right;
+                        &.is-sun {
+                            button {
+                                color:$color-point;
+                            }
+                        }
+                        &.is-sat {
+                            button {
+                                color:$color-primary;
+                            }
+                        }
+                        &.is-today {
+                            button {
+                                border-bottom: 1px solid #0d6dca;
+                            }
+                        }
+                        &.is-selected {
+                            button {
+                                background: #00b79e;
+                                color: #fff;
+                            }
+                        }
                     }
                     button {
                         display: block;
@@ -434,6 +455,7 @@ table {
                 height: 100%;
                 overflow: hidden;
                 overflow-y: auto;
+                overscroll-behavior: none;// 영역안에서 스크롤이 끝났을때 오버스크롤하면 부모 요소로 scroll chaining 되는 현상을 방지해줌.
                 padding: 0 0 0 10px;
                 @extend %animation-visibility-hidden;
                 &.is-open {
@@ -466,6 +488,12 @@ table {
                     transition: height .3s ease-in-out;
                     li {
                         flex: 0 0 calc(100% / 4);
+                        &.is-selected {
+                            button {
+                                background: #00b79e;
+                                color: #fff;
+                            }
+                        }
                     }
                     button {
                         background: #fff;
