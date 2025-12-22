@@ -34,8 +34,6 @@ export function DatePicker() {
     const numericMonth = Number(month)
 
     const [activeYear, setActiveYear] = useState<number>(numericYear)
-
-
     useEffect(() => {
         const baseYear = numericYear
         const range = 3
@@ -111,7 +109,7 @@ export function DatePicker() {
         const firstDayIndex = getDayOfWeekIndexOfFirstDate(year, month)
         const lastDateOfCurrentMonth = getLastDateOfMonth(year, month)
         const prevYear = month === 1 ? year - 1 : year
-        const prevMonth = month === 1 ? 12 : month -1
+        const prevMonth = month === 1 ? 12 : month - 1
         const lastDateOfPrevMonth = getLastDateOfMonth(prevYear, prevMonth)
         const nextYear = month === 12 ? year + 1 : year
         const nextMonth = month === 12 ? 1 : month + 1
@@ -149,10 +147,7 @@ export function DatePicker() {
         return dayCells
     }
 
-    const calendarDateCells = createCalendarDateCells(
-        numericYear,
-        numericMonth
-    )
+    const calendarDateCells = createCalendarDateCells(numericYear, numericMonth)
 
     function onlyNumber(value: string) {
         return value.replace(/\D/g, '')
@@ -214,7 +209,7 @@ export function DatePicker() {
             appendNextYears()
         }
         if (isScrollTop) {
-
+            /* empty */
         }
     }
     function handleYearWheel(e: React.WheelEvent<HTMLDivElement>) {
@@ -224,7 +219,6 @@ export function DatePicker() {
         const isScrollingUp = e.deltaY < 0
 
         if (isAtTop && isScrollingUp) {
-
             if (isPrependingYearsRef.current) return
             isPrependingYearsRef.current = true
 
@@ -289,7 +283,7 @@ export function DatePicker() {
     function handleResetDate() {
         const today = new Date()
 
-        setYear(String(today.getFullYear()).padStart(4,'0'))
+        setYear(String(today.getFullYear()).padStart(4, '0'))
         setMonth(String(today.getMonth() + 1).padStart(2, '0'))
         setDay(String(today.getDate()).padStart(2, '0'))
         // 셋팅 년, 월, 일은 오늘 기준으로 맞춰놓고
@@ -446,7 +440,9 @@ export function DatePicker() {
                             {/**
                              날짜 버튼 클릭시 초기 보여질 달력화면
                              */}
-                            <div className={`calendar-days ${calendarMonthsState ? 'is-close' : ''}`}>
+                            <div
+                                className={`calendar-days ${calendarMonthsState ? 'is-close' : ''}`}
+                            >
                                 <ul className="weekly">
                                     <li>일</li>
                                     <li>월</li>
@@ -468,21 +464,38 @@ export function DatePicker() {
                                         const dayOfWeekIndex = new Date(
                                             cell.year,
                                             cell.month - 1,
-                                            cell.day
+                                            cell.day,
                                         ).getDay()
 
-                                        const weekDayName = ['일', '월', '화', '수', '목', '금', '토'][dayOfWeekIndex]
+                                        const weekDayName = [
+                                            '일',
+                                            '월',
+                                            '화',
+                                            '수',
+                                            '목',
+                                            '금',
+                                            '토',
+                                        ][dayOfWeekIndex]
                                         const cellDateString = `${cell.year}-${pad(cell.month)}-${pad(cell.day)}`
                                         const isSelectedDay = selectedDate === cellDateString
-                                        const todayString = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`
-                                        const isToday = `${year}-${month}-${String(cell.day).padStart(2,'0')}` === todayString
+                                        const todayString = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`
+                                        const isToday =
+                                            `${year}-${month}-${String(cell.day).padStart(2, '0')}` ===
+                                            todayString
                                         const isSunday = dayOfWeekIndex === 0
                                         const isSaturday = dayOfWeekIndex === 6
 
                                         return (
                                             <li
                                                 key={index}
-                                                className={[isSelectedDay ? 'is-selected' : undefined, isToday ? 'is-today' : undefined, isSunday ? 'is-sun' : undefined, isSaturday ? 'is-sat' : undefined].filter(Boolean).join(' ')}
+                                                className={[
+                                                    isSelectedDay ? 'is-selected' : undefined,
+                                                    isToday ? 'is-today' : undefined,
+                                                    isSunday ? 'is-sun' : undefined,
+                                                    isSaturday ? 'is-sat' : undefined,
+                                                ]
+                                                    .filter(Boolean)
+                                                    .join(' ')}
                                             >
                                                 <button
                                                     type="button"
@@ -614,7 +627,9 @@ export function DatePicker() {
                                     {visibleYears.map((yearValue) => (
                                         <li
                                             key={yearValue}
-                                            className={yearValue === activeYear ? 'is-active' : undefined}
+                                            className={
+                                                yearValue === activeYear ? 'is-active' : undefined
+                                            }
                                         >
                                             <button
                                                 type="button"
@@ -625,26 +640,40 @@ export function DatePicker() {
                                                 {yearValue}년
                                             </button>
                                             <ul className="list-month">
-                                                {Array.from({ length: 12 }, (_: any, index: number) => {
-                                                    const monthValue = index + 1
-                                                    return (
-                                                        <li
-                                                            key={monthValue}
-                                                            className={yearValue === Number(year) && monthValue === Number(month) ? 'is-selected' : undefined}
-                                                        >
-                                                            <button
-                                                                type="button"
-                                                                onClick={() => {
-                                                                    setYear(String(yearValue))
-                                                                    setMonth(String(monthValue).padStart(2, '0'))
-                                                                    setCalendarMonthsState(false)
-                                                                }}
+                                                {Array.from(
+                                                    { length: 12 },
+                                                    (_: never, index: number) => {
+                                                        const monthValue = index + 1
+                                                        return (
+                                                            <li
+                                                                key={monthValue}
+                                                                className={
+                                                                    yearValue === Number(year) &&
+                                                                    monthValue === Number(month)
+                                                                        ? 'is-selected'
+                                                                        : undefined
+                                                                }
                                                             >
-                                                                {monthValue}월
-                                                            </button>
-                                                        </li>
-                                                    )
-                                                })}
+                                                                <button
+                                                                    type="button"
+                                                                    onClick={() => {
+                                                                        setYear(String(yearValue))
+                                                                        setMonth(
+                                                                            String(
+                                                                                monthValue,
+                                                                            ).padStart(2, '0'),
+                                                                        )
+                                                                        setCalendarMonthsState(
+                                                                            false,
+                                                                        )
+                                                                    }}
+                                                                >
+                                                                    {monthValue}월
+                                                                </button>
+                                                            </li>
+                                                        )
+                                                    },
+                                                )}
                                             </ul>
                                         </li>
                                     ))}
