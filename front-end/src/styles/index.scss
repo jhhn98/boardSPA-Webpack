@@ -598,13 +598,20 @@ table {
             justify-content: center;
             button {
                 flex: 0 0 50%;
+                flex-wrap: wrap;
                 display: flex;
-                align-items: center;
-                justify-content: center;
+                justify-content: flex-end;
+                padding: 10px 22px;
                 svg {
                     display: block;
-                    margin:0 0 0 5px;
                     fill: #fff;
+                }
+                span {
+                    display: block;
+                    flex: 0 0 100%;
+                    width: 100%;
+                    margin: 5px 0 0;
+                    text-align: center;
                 }
             }
             .submit {

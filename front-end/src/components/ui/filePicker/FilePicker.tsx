@@ -229,21 +229,13 @@ export default function FilePicker() {
                         </ul>
                     </div>
                     <div className="file-actions">
-                        <button
-                            type="button"
-                            className="submit"
-                            onClick={handleSubmitFiles}
-                        >
+                        <button type="button" className="submit" onClick={handleSubmitFiles}>
+                            <Icon name="iconUpload" width={30} height={30} />
                             <span>첨부하기</span>
-                            <Icon name="diskArrowRight" width={20} height={20} />
                         </button>
-                        <button
-                            type="button"
-                            className="cancel"
-                            onClick={clearFiles}
-                        >
+                        <button type="button" className="cancel" onClick={clearFiles}>
+                            <Icon name="iconCancel" width={30} height={30} />
                             <span>전체 취소</span>
-                            <Icon name="diskXMark" width={20} height={20} />
                         </button>
                         <p className="file-message"></p>
                     </div>

@@ -29,6 +29,8 @@ import Plus from '@assets/icons/plus.svg'
 import Apps from '@assets/icons/apps.svg'
 import Grid from '@assets/icons/grid.svg'
 import QuestionCheck from '@assets/icons/question-check.svg'
+import IconCancel from '@assets/icons/icon-cancel.svg'
+import IconUpload from '@assets/icons/icon-upload.svg'
 
 export const iconMap: Record<string, IconItem> = {
     angleLeft: { type: 'svg', component: AngleLeft },
@@ -61,4 +63,6 @@ export const iconMap: Record<string, IconItem> = {
     apps: { type: 'svg', component: Apps },
     grid: { type: 'svg', component: Grid },
     questionCheck: { type: 'svg', component: QuestionCheck },
+    iconCancel: { type: 'svg', component: IconCancel },
+    iconUpload: { type: 'svg', component: IconUpload },
 } as const
