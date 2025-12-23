@@ -1,11 +1,11 @@
 [
     {
-        "id": "admin",
+        "id": "admin@test.kr",
         "password": "1234",
         "nickname": "관리자"
     },
     {
-        "id": "user1",
+        "id": "user1@test.kr",
         "password": "1234",
         "nickname": "사용자1"
     }
