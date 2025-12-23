@@ -1,6 +1,7 @@
 import { Fragment } from 'react'
 import Header from './components/common/Header'
 import Footer from './components/common/Footer'
+import Home from './pages/Home'
 import List from './pages/board/List'
 import View from './pages/board/View'
 import Write from './pages/board/Write'
@@ -12,12 +13,11 @@ export default function App() {
         <Fragment>
             <Header />
             <main>
+                <Home />
                 <List />
                 <View />
                 <Write />
-                {/**
-                 <Edit />
-                 */}
+                <Edit />
             </main>
             <Footer />
         </Fragment>
