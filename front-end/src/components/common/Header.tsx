@@ -1,14 +1,17 @@
+import { NavLink, useParams } from 'react-router-dom'
 export default function Header() {
     return (
         <header>
-            <h1>BoardSPA</h1>
+            <h1>
+                <NavLink to="/">BoardSPA</NavLink>
+            </h1>
             <nav className="navigation">
-                <a href="/" className="navigation-link">
+                <NavLink to="/board/1" className="navigation-link">
                     Board1
-                </a>
-                <a href="/" className="navigation-link">
+                </NavLink>
+                <NavLink to="/board/2" className="navigation-link">
                     Board2
-                </a>
+                </NavLink>
             </nav>
         </header>
     )
