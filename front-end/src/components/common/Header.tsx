@@ -3,8 +3,12 @@ export default function Header() {
         <header>
             <h1>BoardSPA</h1>
             <nav className="navigation">
-                <a href="/">Board1</a>
-                <a href="/">Board2</a>
+                <a href="/" className="navigation-link">
+                    Board1
+                </a>
+                <a href="/" className="navigation-link">
+                    Board2
+                </a>
             </nav>
         </header>
     )
