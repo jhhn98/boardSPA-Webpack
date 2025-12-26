@@ -1,0 +1,16 @@
+{
+    "status": {
+        "code": "SUCCESS",
+        "message": "성공"
+    },
+    "data": [
+        {
+            "bbsNo": "1",
+            "bbsNm": "공지사항"
+        },
+        {
+            "bbsNo": "2",
+            "bbsNm": "자유게시판"
+        }
+    ]
+}
