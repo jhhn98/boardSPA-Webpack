@@ -1,21 +1,18 @@
 import { Fragment } from 'react'
 import { Route, Routes } from 'react-router'
-import Header from './components/common/Header'
-import Footer from './components/common/Footer'
-import Home from './pages/Home'
+import Layout from './components/common/Layout'
 import List from './pages/board/List'
+import Home from './pages/Home'
 
 export default function App() {
     return (
         <Fragment>
-            <Header />
-            <main>
-                <Routes>
+            <Routes>
+                <Route element={<Layout />}>
                     <Route path="/" element={<Home />} />
-                    <Route path="/board/:bbsId" element={<List />} />
-                </Routes>
-            </main>
-            <Footer />
+                    <Route path="/bbs" element={<List />} />
+                </Route>
+            </Routes>
         </Fragment>
     )
 }
