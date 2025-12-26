@@ -1,16 +1,17 @@
-import { NavLink, useParams } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
+const getNavLinkClass = ({ isActive }: {isActive: boolean}) => `navigation-link${isActive ? ' active' : ''}`
 export default function Header() {
     return (
         <header>
             <h1>
-                <NavLink to="/">BoardSPA</NavLink>
+                <Link to="/">BoardSPA</Link>
             </h1>
             <nav className="navigation">
-                <NavLink to="/board/1" className="navigation-link">
-                    Board1
+                <NavLink to="/bbsList/1" className={getNavLinkClass}>
+                    공지사항
                 </NavLink>
-                <NavLink to="/board/2" className="navigation-link">
-                    Board2
+                <NavLink to="/bbsList/2" className={getNavLinkClass}>
+                    자유게시판
                 </NavLink>
             </nav>
         </header>
