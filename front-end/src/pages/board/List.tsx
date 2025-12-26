@@ -1,25 +1,16 @@
 import { Fragment } from 'react'
-import Pagination from '../../components/ui/Pagination'
+import { Link, useParams } from 'react-router'
+import Header from '../../components/bbs/Header'
+import Footer from '../../components/bbs/Footer'
+import { loadBoardList } from '../../data/board/boardLoader'
+
 export default function List() {
+    const { bbsNo } = useParams<{ bbsNo: string }>()
+    const posts = bbsNo ? loadBoardList(bbsNo) : []
+    console.log(posts)
     return (
         <Fragment>
-            <h2>&#39;게시판 이름&#39; - 목록</h2>
-            <div className="board-function">
-                <div className="block-left">
-                    <span className="board-post-count">0 / 0</span>
-                </div>
-                <div className="block-right">
-                    {/**
-                     추가기능
-                    <button type="button" className="handle-button type-table">
-                        목록으로 보기
-                    </button>
-                    <button type="button" className="handle-button type-thumbnail">
-                        썸네일로 보기
-                    </button>
-                    */}
-                </div>
-            </div>
+            <Header />
             <table className="board-list">
                 <caption>게시판 목록-게시물번호, 제목, 작성자, 작성일, 첨부파일, 조회수</caption>
                 <colgroup>
@@ -41,26 +32,48 @@ export default function List() {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr className="none-post">
-                        <td colSpan={6}>등록된 게시물이 없습니다.</td>
-                    </tr>
-                    <tr>
-                        <td className="text-align-right">1</td>
-                        <td className="text-align-left">
-                            <a href="">게시물 테스트입니다.</a>
-                        </td>
-                        <td>관리자</td>
-                        <td>2025-10-04</td>
-                        <td>
-                            <button type="button" className="handle-button">
-                                첨부파일 보기
-                            </button>
-                        </td>
-                        <td>0</td>
-                    </tr>
+                    {posts.length === 0 && (
+                        <tr className="none-post">
+                            <td colSpan={6}>등록된 게시물이 없습니다.</td>
+                        </tr>
+                    )}
+                    {posts.map((post) => (
+                        <tr key={post.postNo}>
+                            {/*게시물번호 postNo*/}
+                            <td className="text-align-right">{post.postNo}</td>
+                            {/*제목 title*/}
+                            <td className="text-align-left">
+                                <Link to="/bbsView">{post.title}</Link>
+                            </td>
+                            {/*작성자 author*/}
+                            <td>{post.author}</td>
+                            {/*작성일 createdAt*/}
+                            <td>{post.createdAt}</td>
+                            {/*첨부파일 attachments*/}
+                            <td>
+                                <button type="button" className="handle-button">
+                                    첨부파일 보기
+                                </button>
+                                {post.attachments && post.attachments.length > 0 && (
+                                    <ul>
+                                        {post.attachments.map((file) => (
+                                            <li key={file.fileId}>
+                                                <a href={file.url}>
+                                                    <span className="file-name">{file.name}</span>
+                                                    <span className="file-size">{file.size}</span>
+                                                </a>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                )}
+                            </td>
+                            {/*조회수 views*/}
+                            <td>{post.views}</td>
+                        </tr>
+                    ))}
                 </tbody>
             </table>
-            <Pagination />
+            <Footer />
         </Fragment>
     )
 }

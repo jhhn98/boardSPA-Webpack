@@ -14,7 +14,7 @@
         "module": "ESNext",
         "moduleResolution": "Node",
         "target": "ES6",
-        "types": [],
+        "types": ["node", "webpack-env"],
         // For nodejs:
         "lib": ["DOM", "ESNext"],
         // "types": ["node"],
