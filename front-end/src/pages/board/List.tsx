@@ -7,7 +7,7 @@ import { loadBoardList } from '../../data/board/boardLoader'
 export default function List() {
     const { bbsNo } = useParams<{ bbsNo: string }>()
     const posts = bbsNo ? loadBoardList(bbsNo) : []
-    console.log(posts)
+    console.log('Data: ', posts)
     return (
         <Fragment>
             <Header />
@@ -33,7 +33,7 @@ export default function List() {
                 </thead>
                 <tbody>
                     {posts.length === 0 && (
-                        <tr className="none-post">
+                        <tr className="none-post" key="post-none">
                             <td colSpan={6}>등록된 게시물이 없습니다.</td>
                         </tr>
                     )}
