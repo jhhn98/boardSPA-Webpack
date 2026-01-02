@@ -4,11 +4,15 @@ export interface AttachmentFile {
     size: number
     url: string
 }
+export interface Attachments {
+    hasFiles: boolean
+    files: AttachmentFile[]
+}
 export interface BoardPost {
     postNo: string
     title: string
     author: string
     createdAt: string
-    attachments?: AttachmentFile[]
+    attachments?: Attachments
     views: number
 }

@@ -7,7 +7,6 @@ import { loadBoardList } from '../../data/board/boardLoader'
 export default function List() {
     const { bbsNo } = useParams<{ bbsNo: string }>()
     const posts = bbsNo ? loadBoardList(bbsNo) : []
-    console.log('Data: ', posts)
     return (
         <Fragment>
             <Header />
@@ -54,9 +53,9 @@ export default function List() {
                                 <button type="button" className="handle-button">
                                     첨부파일 보기
                                 </button>
-                                {post.attachments && post.attachments.length > 0 && (
+                                {post.attachments?.hasFiles && (
                                     <ul>
-                                        {post.attachments.map((file) => (
+                                        {post.attachments?.files.map((file) => (
                                             <li key={file.fileId}>
                                                 <a href={file.url}>
                                                     <span className="file-name">{file.name}</span>
