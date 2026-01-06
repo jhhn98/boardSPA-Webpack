@@ -11,6 +11,7 @@ input,
 textarea,
 button,
 a {
+    cursor: pointer;
     &:focus {
         @extend %focus-outline;
     }

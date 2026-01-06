@@ -183,6 +183,28 @@ table {
         }
     }
 }
+.attachment {
+    position: relative;
+}
+.attachment-list {
+    position: absolute;
+    top: 35px;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    width: 100%;
+    max-height: 80px;
+    overflow: hidden;
+    overflow-y: auto;
+    margin: 0 auto;
+    padding: 15px 0;
+    background: #fff;
+    @extend %visual-RoundShadow;
+    @extend %animation-visibility-hidden;
+    &.is-open {
+        @extend %animation-visibility-visible;
+    }
+}
 .pagination {
     display: flex;
     justify-content: center;
@@ -344,7 +366,6 @@ table {
             background: #fff;
             @extend %visual-RoundShadow;
             font-size: 12px;
-            opacity: 0;
             @extend %animation-visibility-hidden;
             &.is-open {
                 @extend %animation-visibility-visible;

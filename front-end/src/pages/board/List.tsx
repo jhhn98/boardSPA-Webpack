@@ -7,6 +7,8 @@ import { loadBoardList } from '../../data/board/boardLoader'
 export default function List() {
     const { bbsNo } = useParams<{ bbsNo: string }>()
     const posts = bbsNo ? loadBoardList(bbsNo) : []
+    const totalPosts = posts.length
+    const [openPostNo, setOpenPostNo] = useState<number | null>(null)
 
     // pagination 상태
     const ITEMS_PER_PAGE = 10
@@ -18,7 +20,7 @@ export default function List() {
     const currentPosts = visiblePosts.slice(startIndex, endIndex)
     return (
         <Fragment>
-            <Header />
+            <Header totalPosts={totalPosts} totalPages={totalPages} currentPage={currentPage} />
             <table className="board-list">
                 <caption>게시판 목록-게시물번호, 제목, 작성자, 작성일, 첨부파일, 조회수</caption>
                 <colgroup>
@@ -58,20 +60,36 @@ export default function List() {
                             {/*작성일 createdAt*/}
                             <td>{post.createdAt}</td>
                             {/*첨부파일 attachments*/}
-                            <td>
-                                <button type="button" className="handle-button">
-                                    첨부파일 보기
-                                </button>
+                            <td className="attachment">
                                 {post.attachments?.hasFiles && (
-                                    <ul>
-                                        {post.attachments?.files.map((file) => (
-                                            <li key={file.fileId}>
-                                                <a href={file.url}>
-                                                    <span className="file-name">{file.name}</span>
-                                                </a>
-                                            </li>
-                                        ))}
-                                    </ul>
+                                    <Fragment>
+                                        <button
+                                            type="button"
+                                            className="handle-button"
+                                            onClick={() =>
+                                                setOpenPostNo((prev) =>
+                                                    prev === Number(post.postNo)
+                                                        ? null
+                                                        : Number(post.postNo),
+                                                )
+                                            }
+                                        >
+                                            첨부파일 보기
+                                        </button>
+                                        <ul
+                                            className={`attachment-list${openPostNo === Number(post.postNo) ? ' is-open' : ''}`}
+                                        >
+                                            {post.attachments?.files.map((file) => (
+                                                <li key={file.fileId}>
+                                                    <a href={file.url}>
+                                                        <span className="file-name">
+                                                            {file.name}
+                                                        </span>
+                                                    </a>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </Fragment>
                                 )}
                             </td>
                             {/*조회수 views*/}
