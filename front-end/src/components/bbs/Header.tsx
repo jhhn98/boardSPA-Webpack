@@ -1,12 +1,18 @@
 import { Fragment } from 'react'
-
-export default function Header() {
+type HeaderProps = {
+    totalPosts: number
+    totalPages: number
+    currentPage: number
+}
+export default function Header({ totalPosts, totalPages, currentPage }: HeaderProps) {
     return (
         <Fragment>
             <h2>&#39;게시판 이름&#39; - 목록</h2>
             <div className="board-function">
                 <div className="block-left">
-                    <span className="board-post-count">총 0 개 | 총 0 페이지</span>
+                    <span className="board-post-count">
+                        총 {totalPosts} 개 | {currentPage} / {totalPages} 페이지
+                    </span>
                 </div>
                 <div className="block-right">
                     {/**
