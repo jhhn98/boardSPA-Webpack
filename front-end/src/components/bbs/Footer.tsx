@@ -1,7 +1,12 @@
-import Pagination from '../ui/Pagination'
+import { Pagination } from '../ui/Pagination'
 import { Fragment } from 'react'
 
-export default function Footer() {
+type FooterProps = {
+    totalPages: number
+    currentPage: number
+    onPageChange: (page: number) => void
+}
+export default function Footer({ totalPages, currentPage, onPageChange }: FooterProps) {
     return (
         <Fragment>
             <div className="post-actions margin-top-20">
@@ -16,7 +21,7 @@ export default function Footer() {
                     </a>*/}
                 </div>
             </div>
-            <Pagination />
+            <Pagination totalPages={totalPages} currentPage={currentPage} onChange={onPageChange} />
         </Fragment>
     )
 }

@@ -1,4 +1,4 @@
-import { Fragment } from 'react'
+import { Fragment, useState } from 'react'
 import { Link, useParams } from 'react-router'
 import Header from '../../components/bbs/Header'
 import Footer from '../../components/bbs/Footer'
@@ -7,6 +7,15 @@ import { loadBoardList } from '../../data/board/boardLoader'
 export default function List() {
     const { bbsNo } = useParams<{ bbsNo: string }>()
     const posts = bbsNo ? loadBoardList(bbsNo) : []
+
+    // pagination 상태
+    const ITEMS_PER_PAGE = 10
+    const [currentPage, setCurrentPage] = useState(1)
+    const visiblePosts = posts
+    const totalPages = Math.ceil(visiblePosts.length / ITEMS_PER_PAGE)
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE
+    const endIndex = startIndex + ITEMS_PER_PAGE
+    const currentPosts = visiblePosts.slice(startIndex, endIndex)
     return (
         <Fragment>
             <Header />
@@ -36,7 +45,7 @@ export default function List() {
                             <td colSpan={6}>등록된 게시물이 없습니다.</td>
                         </tr>
                     )}
-                    {posts.map((post) => (
+                    {currentPosts.map((post) => (
                         <tr key={post.postNo}>
                             {/*게시물번호 postNo*/}
                             <td className="text-align-right">{post.postNo}</td>
@@ -59,7 +68,6 @@ export default function List() {
                                             <li key={file.fileId}>
                                                 <a href={file.url}>
                                                     <span className="file-name">{file.name}</span>
-                                                    <span className="file-size">{file.size}</span>
                                                 </a>
                                             </li>
                                         ))}
@@ -72,7 +80,11 @@ export default function List() {
                     ))}
                 </tbody>
             </table>
-            <Footer />
+            <Footer
+                totalPages={totalPages}
+                currentPage={currentPage}
+                onPageChange={setCurrentPage}
+            />
         </Fragment>
     )
 }
