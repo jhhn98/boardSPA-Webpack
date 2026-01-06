@@ -391,7 +391,7 @@ export function DatePicker() {
                     className="handle-calendar-open"
                     ref={calendarOpenButtonRef}
                     aria-expanded={calendarPanelState}
-                    onClick={() => setCalendarPanelState(true)}
+                    onClick={() => setCalendarPanelState((prev) => !prev)}
                 >
                     <Icon name="calendarDay" width={16} height={16} fill="#ec0044" />
                     <span>달력UI열기</span>
@@ -399,7 +399,7 @@ export function DatePicker() {
                 {calendarPanelState && (
                     <div
                         ref={calendarMonthsRef}
-                        className={`calendar-panel ${calendarPanelState ? 'is-open' : ''}`}
+                        className={`calendar-panel${calendarPanelState ? ' is-open' : ''}`}
                         role="dialog"
                         aria-hidden={!calendarPanelState}
                     >
