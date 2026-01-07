@@ -4,9 +4,11 @@ export function loadBoardList(bbsNo: string): BoardPost[] {
     try {
         const result = boardListContext(`./${bbsNo}/bbsList.json`)
         const response = result.default ?? result
-        console.log(result)
-        console.log(response.data)
-        return response.data as BoardPost[]
+        const posts = response.data as BoardPost[]
+
+        return [...posts].sort(
+            (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
+        )
     } catch {
         return []
     }

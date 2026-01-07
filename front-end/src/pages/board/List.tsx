@@ -58,55 +58,58 @@ export default function List() {
                             <td colSpan={6}>등록된 게시물이 없습니다.</td>
                         </tr>
                     )}
-                    {currentPosts.map((post) => (
-                        <tr key={post.postNo}>
-                            {/*게시물번호 postNo*/}
-                            <td className="text-align-right">{post.postNo}</td>
-                            {/*제목 title*/}
-                            <td className="text-align-left">
-                                <Link to="/bbsView">{post.title}</Link>
-                            </td>
-                            {/*작성자 author*/}
-                            <td>{post.author}</td>
-                            {/*작성일 createdAt*/}
-                            <td>{post.createdAt}</td>
-                            {/*첨부파일 attachments*/}
-                            <td className="attachment">
-                                {post.attachments?.hasFiles && (
-                                    <Fragment>
-                                        <button
-                                            type="button"
-                                            className="handle-button"
-                                            onClick={() =>
-                                                setOpenPostNo((prev) =>
-                                                    prev === Number(post.postNo)
-                                                        ? null
-                                                        : Number(post.postNo),
-                                                )
-                                            }
-                                        >
-                                            첨부파일 보기
-                                        </button>
-                                        <ul
-                                            className={`attachment-list${openPostNo === Number(post.postNo) ? ' is-open' : ''}`}
-                                        >
-                                            {post.attachments?.files.map((file) => (
-                                                <li key={file.fileId}>
-                                                    <a href={file.url}>
-                                                        <span className="file-name">
-                                                            {file.name}
-                                                        </span>
-                                                    </a>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </Fragment>
-                                )}
-                            </td>
-                            {/*조회수 views*/}
-                            <td>{post.views}</td>
-                        </tr>
-                    ))}
+                    {currentPosts.map((post, index) => {
+                        const displayNo = totalPosts - (currentPage - 1) * pageSize - index
+                        return (
+                            <tr key={post.postNo}>
+                                {/*게시물번호 postNo*/}
+                                <td className="text-align-right">{displayNo}</td>
+                                {/*제목 title*/}
+                                <td className="text-align-left">
+                                    <Link to="/bbsView">{post.title}</Link>
+                                </td>
+                                {/*작성자 author*/}
+                                <td>{post.author}</td>
+                                {/*작성일 createdAt*/}
+                                <td>{post.createdAt}</td>
+                                {/*첨부파일 attachments*/}
+                                <td className="attachment">
+                                    {post.attachments?.hasFiles && (
+                                        <Fragment>
+                                            <button
+                                                type="button"
+                                                className="handle-button"
+                                                onClick={() =>
+                                                    setOpenPostNo((prev) =>
+                                                        prev === Number(post.postNo)
+                                                            ? null
+                                                            : Number(post.postNo),
+                                                    )
+                                                }
+                                            >
+                                                첨부파일 보기
+                                            </button>
+                                            <ul
+                                                className={`attachment-list${openPostNo === Number(post.postNo) ? ' is-open' : ''}`}
+                                            >
+                                                {post.attachments?.files.map((file) => (
+                                                    <li key={file.fileId}>
+                                                        <a href={file.url}>
+                                                            <span className="file-name">
+                                                                {file.name}
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </Fragment>
+                                    )}
+                                </td>
+                                {/*조회수 views*/}
+                                <td>{post.views}</td>
+                            </tr>
+                        )
+                    })}
                 </tbody>
             </table>
             <Footer
