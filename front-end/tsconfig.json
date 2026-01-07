@@ -3,6 +3,7 @@
     "compilerOptions": {
         "baseUrl": "./src",
         "paths": {
+            "@/*": ["*"],
             "@assets/*": ["assets/*"]
         },
         // File Layout
@@ -46,7 +47,8 @@
         "noUncheckedSideEffectImports": true,
         "moduleDetection": "force",
         "skipLibCheck": true,
-        "forceConsistentCasingInFileNames": true
+        "forceConsistentCasingInFileNames": true,
+        "resolveJsonModule": true,
     },
     "include": ["src"],
     "exclude": [
