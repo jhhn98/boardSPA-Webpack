@@ -2,14 +2,20 @@ import { Fragment, useState } from 'react'
 import { Link, useParams } from 'react-router'
 import Header from '../../components/bbs/Header'
 import Footer from '../../components/bbs/Footer'
-import { loadBoardList } from '../../data/board/boardLoader'
+import { loadBoardList } from '@/data/board/boardLoader'
+import bbsInfo from '@/data/board/bbsInfo.json'
+
+type BbsInfoItem = {
+    bbsNo: string
+    bbsNm: string
+}
 
 export default function List() {
     const { bbsNo } = useParams<{ bbsNo: string }>()
     const posts = bbsNo ? loadBoardList(bbsNo) : []
     const totalPosts = posts.length
     const [openPostNo, setOpenPostNo] = useState<number | null>(null)
-
+    const bbsName = bbsInfo.data.find((item) => item.bbsNo === bbsNo)?.bbsNm ?? '게시판'
     // pagination 상태
     const ITEMS_PER_PAGE = 10
     const [currentPage, setCurrentPage] = useState(1)
@@ -20,7 +26,12 @@ export default function List() {
     const currentPosts = visiblePosts.slice(startIndex, endIndex)
     return (
         <Fragment>
-            <Header totalPosts={totalPosts} totalPages={totalPages} currentPage={currentPage} />
+            <Header
+                totalPosts={totalPosts}
+                totalPages={totalPages}
+                currentPage={currentPage}
+                bbsName={bbsName}
+            />
             <table className="board-list">
                 <caption>게시판 목록-게시물번호, 제목, 작성자, 작성일, 첨부파일, 조회수</caption>
                 <colgroup>

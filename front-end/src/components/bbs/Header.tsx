@@ -3,11 +3,12 @@ type HeaderProps = {
     totalPosts: number
     totalPages: number
     currentPage: number
+    bbsName?: string
 }
-export default function Header({ totalPosts, totalPages, currentPage }: HeaderProps) {
+export default function Header({ totalPosts, totalPages, currentPage, bbsName }: HeaderProps) {
     return (
         <Fragment>
-            <h2>&#39;게시판 이름&#39; - 목록</h2>
+            <h2>{bbsName ?? '게시판'} - 목록</h2>
             <div className="board-function">
                 <div className="block-left">
                     <span className="board-post-count">
