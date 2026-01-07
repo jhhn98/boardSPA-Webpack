@@ -10,6 +10,10 @@
             "title": "[공지사항] 네오아트센터 Open",
             "author": "관리자",
             "createdAt": "2025-09-03",
+            "noticePeriod": {
+                "startDate": "2025-09-03",
+                "endDate": "2025-09-05"
+            },
             "views": 17,
             "attachments": {
                 "hasFiles": true,
@@ -29,6 +33,10 @@
             "title": "[공지사항] 네오아트센터 개관식에 참석해 주셔서 감사드립니다.",
             "author": "사용자1",
             "createdAt": "2025-09-04",
+            "noticePeriod": {
+                "startDate": "2025-09-04",
+                "endDate": "2025-09-10"
+            },
             "views": 9,
             "attachments": {
                 "hasFiles": true,
@@ -54,6 +62,10 @@
             "title": "[공지사항] 네오아트센터 개관 초대전 8월15일까지 연장 전시됩니다.",
             "author": "사용자1",
             "createdAt": "2025-09-05",
+            "noticePeriod": {
+                "startDate": "2025-09-05",
+                "endDate": "2025-09-11"
+            },
             "views": 6,
             "attachments": {
                 "hasFiles": false,
@@ -66,6 +78,10 @@
             "title": "[공지사항] 청소년 장학기금 마련 일일음악카페 개최 안내",
             "author": "관리자",
             "createdAt": "2025-09-06",
+            "noticePeriod": {
+                "startDate": "2025-09-06",
+                "endDate": "2025-09-07"
+            },
             "views": 8,
             "attachments": {
                 "hasFiles": true,
@@ -103,6 +119,10 @@
             "title": "[공지사항] 수암골 문화공간, 네오아트센터 그림쏘옥 음악감상실",
             "author": "관리자",
             "createdAt": "2025-09-07",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 1,
             "attachments": {
                 "hasFiles": true,
@@ -146,6 +166,10 @@
             "title": "[공지사항] 다가오는 전시일정 안내드립니다.",
             "author": "관리자",
             "createdAt": "2025-09-08",
+            "noticePeriod": {
+                "startDate": "2025-09-08",
+                "endDate": "2025-09-10"
+            },
             "views": 9,
             "attachments": {
                 "hasFiles": true,
@@ -195,6 +219,10 @@
             "title": "[공지사항] 네오아트센터 개관 초대전에 동참해주신 작가님들에게 감사 인사드립니다.",
             "author": "관리자",
             "createdAt": "2025-09-09",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 12,
             "attachments": {
                 "hasFiles": true,
@@ -250,6 +278,10 @@
             "title": "[공지사항] 네오아트센터 휴관일 공지",
             "author": "관리자",
             "createdAt": "2025-09-10",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 20,
             "attachments": {
                 "hasFiles": true,
@@ -311,6 +343,10 @@
             "title": "[공지사항] 네오아트센터 4층별관 행사 안내",
             "author": "관리자",
             "createdAt": "2025-09-11",
+            "noticePeriod": {
+                "startDate": "2025-09-11",
+                "endDate": "2025-09-12"
+            },
             "views": 25,
             "attachments": {
                 "hasFiles": true,
@@ -378,6 +414,10 @@
             "title": "[공지사항] 제19회 자선소품전 '쌀 한가마니전'(25.01.22 - 25.01.29)",
             "author": "관리자",
             "createdAt": "2025-09-12",
+            "noticePeriod": {
+                "startDate": "2025-09-12",
+                "endDate": "2025-09-13"
+            },
             "views": 25,
             "attachments": {
                 "hasFiles": true,
@@ -451,6 +491,10 @@
             "title": "[공지사항] 11 네오아트센터 Open",
             "author": "관리자",
             "createdAt": "2025-09-13",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 17,
             "attachments": {
                 "hasFiles": true,
@@ -476,6 +520,10 @@
             "title": "[공지사항] 12 네오아트센터 개관식에 참석해 주셔서 감사드립니다.",
             "author": "사용자1",
             "createdAt": "2025-09-14",
+            "noticePeriod": {
+                "startDate": "2025-09-14",
+                "endDate": "2025-09-16"
+            },
             "views": 9,
             "attachments": {
                 "hasFiles": true,
@@ -501,6 +549,10 @@
             "title": "[공지사항] 13 네오아트센터 개관 초대전 8월15일까지 연장 전시됩니다.",
             "author": "사용자1",
             "createdAt": "2025-09-15",
+            "noticePeriod": {
+                "startDate": "2025-09-15",
+                "endDate": "2025-09-18"
+            },
             "views": 6,
             "attachments": {
                 "hasFiles": false,
@@ -513,6 +565,10 @@
             "title": "[공지사항] 14 청소년 장학기금 마련 일일음악카페 개최 안내",
             "author": "관리자",
             "createdAt": "2025-09-16",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 8,
             "attachments": {
                 "hasFiles": true,
@@ -532,6 +588,10 @@
             "title": "[공지사항] 15 수암골 문화공간, 네오아트센터 그림쏘옥 음악감상실",
             "author": "관리자",
             "createdAt": "2025-09-17",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 1,
             "attachments": {
                 "hasFiles": true,
@@ -551,6 +611,10 @@
             "title": "[공지사항] 16 다가오는 전시일정 안내드립니다.",
             "author": "관리자",
             "createdAt": "2025-09-18",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 9,
             "attachments": {
                 "hasFiles": true,
@@ -570,6 +634,10 @@
             "title": "[공지사항] 17 네오아트센터 개관 초대전에 동참해주신 작가님들에게 감사 인사드립니다.",
             "author": "관리자",
             "createdAt": "2025-09-19",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 12,
             "attachments": {
                 "hasFiles": true,
@@ -589,6 +657,10 @@
             "title": "[공지사항] 18 네오아트센터 휴관일 공지",
             "author": "관리자",
             "createdAt": "2025-09-20",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 20,
             "attachments": {
                 "hasFiles": true,
@@ -608,6 +680,10 @@
             "title": "[공지사항] 19 네오아트센터 4층별관 행사 안내",
             "author": "관리자",
             "createdAt": "2025-09-21",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 25,
             "attachments": {
                 "hasFiles": true,
@@ -669,6 +745,10 @@
             "title": "[공지사항] 20 제19회 자선소품전 '쌀 한가마니전'(25.01.22 - 25.01.29)",
             "author": "관리자",
             "createdAt": "2025-09-22",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 25,
             "attachments": {
                 "hasFiles": true,
@@ -706,6 +786,10 @@
             "title": "[공지사항] 21 네오아트센터 Open",
             "author": "관리자",
             "createdAt": "2025-09-23",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 17,
             "attachments": {
                 "hasFiles": true,
@@ -731,6 +815,10 @@
             "title": "[공지사항] 22 네오아트센터 개관식에 참석해 주셔서 감사드립니다.",
             "author": "사용자1",
             "createdAt": "2025-09-24",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 9,
             "attachments": {
                 "hasFiles": true,
@@ -756,6 +844,10 @@
             "title": "[공지사항] 23 네오아트센터 개관 초대전 8월15일까지 연장 전시됩니다.",
             "author": "사용자1",
             "createdAt": "2025-09-25",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 6,
             "attachments": {
                 "hasFiles": false,
@@ -768,6 +860,10 @@
             "title": "[공지사항] 24 청소년 장학기금 마련 일일음악카페 개최 안내",
             "author": "관리자",
             "createdAt": "2025-09-26",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 8,
             "attachments": {
                 "hasFiles": true,
@@ -787,6 +883,10 @@
             "title": "[공지사항] 25 수암골 문화공간, 네오아트센터 그림쏘옥 음악감상실",
             "author": "관리자",
             "createdAt": "2025-09-27",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 1,
             "attachments": {
                 "hasFiles": true,
@@ -806,6 +906,10 @@
             "title": "[공지사항] 26 다가오는 전시일정 안내드립니다.",
             "author": "관리자",
             "createdAt": "2025-09-28",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 9,
             "attachments": {
                 "hasFiles": true,
@@ -825,6 +929,10 @@
             "title": "[공지사항] 27 네오아트센터 개관 초대전에 동참해주신 작가님들에게 감사 인사드립니다.",
             "author": "관리자",
             "createdAt": "2025-10-01",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 12,
             "attachments": {
                 "hasFiles": true,
@@ -844,6 +952,10 @@
             "title": "[공지사항] 28 네오아트센터 휴관일 공지",
             "author": "관리자",
             "createdAt": "2025-10-02",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 20,
             "attachments": {
                 "hasFiles": true,
@@ -863,6 +975,10 @@
             "title": "[공지사항] 29 네오아트센터 4층별관 행사 안내",
             "author": "관리자",
             "createdAt": "2025-10-03",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 25,
             "attachments": {
                 "hasFiles": true,
@@ -900,6 +1016,10 @@
             "title": "[공지사항] 30 제19회 자선소품전 '쌀 한가마니전'(25.01.22 - 25.01.29)",
             "author": "관리자",
             "createdAt": "2025-10-04",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 25,
             "attachments": {
                 "hasFiles": true,
@@ -937,6 +1057,10 @@
             "title": "[공지사항] 31 네오아트센터 Open",
             "author": "관리자",
             "createdAt": "2025-10-05",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 17,
             "attachments": {
                 "hasFiles": true,
@@ -962,6 +1086,10 @@
             "title": "[공지사항] 32 네오아트센터 개관식에 참석해 주셔서 감사드립니다.",
             "author": "사용자1",
             "createdAt": "2025-10-06",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 9,
             "attachments": {
                 "hasFiles": true,
@@ -987,6 +1115,10 @@
             "title": "[공지사항] 33 네오아트센터 개관 초대전 8월15일까지 연장 전시됩니다.",
             "author": "사용자1",
             "createdAt": "2025-10-07",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 6,
             "attachments": {
                 "hasFiles": false,
@@ -999,6 +1131,10 @@
             "title": "[공지사항] 34 청소년 장학기금 마련 일일음악카페 개최 안내",
             "author": "관리자",
             "createdAt": "2025-10-08",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 8,
             "attachments": {
                 "hasFiles": true,
@@ -1018,6 +1154,10 @@
             "title": "[공지사항] 35 수암골 문화공간, 네오아트센터 그림쏘옥 음악감상실",
             "author": "관리자",
             "createdAt": "2025-10-09",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 1,
             "attachments": {
                 "hasFiles": true,
@@ -1037,6 +1177,10 @@
             "title": "[공지사항] 36 다가오는 전시일정 안내드립니다.",
             "author": "관리자",
             "createdAt": "2025-10-10",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 9,
             "attachments": {
                 "hasFiles": true,
@@ -1056,6 +1200,10 @@
             "title": "[공지사항] 37 네오아트센터 개관 초대전에 동참해주신 작가님들에게 감사 인사드립니다.",
             "author": "관리자",
             "createdAt": "2025-10-11",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 12,
             "attachments": {
                 "hasFiles": true,
@@ -1075,6 +1223,10 @@
             "title": "[공지사항] 38 네오아트센터 휴관일 공지",
             "author": "관리자",
             "createdAt": "2025-10-11",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 20,
             "attachments": {
                 "hasFiles": true,
@@ -1094,6 +1246,10 @@
             "title": "[공지사항] 39 네오아트센터 4층별관 행사 안내",
             "author": "관리자",
             "createdAt": "2025-10-12",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 25,
             "attachments": {
                 "hasFiles": true,
@@ -1131,6 +1287,10 @@
             "title": "[공지사항] 40 제19회 자선소품전 '쌀 한가마니전'(25.01.22 - 25.01.29)",
             "author": "관리자",
             "createdAt": "2025-10-13",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 25,
             "attachments": {
                 "hasFiles": true,
@@ -1168,6 +1328,10 @@
             "title": "[공지사항] 41 네오아트센터 Open",
             "author": "관리자",
             "createdAt": "2025-10-14",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 17,
             "attachments": {
                 "hasFiles": true,
@@ -1193,6 +1357,10 @@
             "title": "[공지사항] 42 네오아트센터 개관식에 참석해 주셔서 감사드립니다.",
             "author": "사용자1",
             "createdAt": "2025-10-15",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 9,
             "attachments": {
                 "hasFiles": true,
@@ -1218,6 +1386,10 @@
             "title": "[공지사항] 43 네오아트센터 개관 초대전 8월15일까지 연장 전시됩니다.",
             "author": "사용자1",
             "createdAt": "2025-10-16",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 6,
             "attachments": {
                 "hasFiles": false,
@@ -1230,6 +1402,10 @@
             "title": "[공지사항] 44 청소년 장학기금 마련 일일음악카페 개최 안내",
             "author": "관리자",
             "createdAt": "2025-10-17",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 8,
             "attachments": {
                 "hasFiles": true,
@@ -1249,6 +1425,10 @@
             "title": "[공지사항] 45 수암골 문화공간, 네오아트센터 그림쏘옥 음악감상실",
             "author": "관리자",
             "createdAt": "2025-10-18",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 1,
             "attachments": {
                 "hasFiles": true,
@@ -1268,6 +1448,10 @@
             "title": "[공지사항] 46 다가오는 전시일정 안내드립니다.",
             "author": "관리자",
             "createdAt": "2025-10-19",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 9,
             "attachments": {
                 "hasFiles": true,
@@ -1287,6 +1471,10 @@
             "title": "[공지사항] 47 네오아트센터 개관 초대전에 동참해주신 작가님들에게 감사 인사드립니다.",
             "author": "관리자",
             "createdAt": "2025-10-20",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 12,
             "attachments": {
                 "hasFiles": true,
@@ -1306,6 +1494,10 @@
             "title": "[공지사항] 48 네오아트센터 휴관일 공지",
             "author": "관리자",
             "createdAt": "2025-10-21",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 20,
             "attachments": {
                 "hasFiles": true,
@@ -1325,6 +1517,10 @@
             "title": "[공지사항] 49 네오아트센터 4층별관 행사 안내",
             "author": "관리자",
             "createdAt": "2025-10-22",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 25,
             "attachments": {
                 "hasFiles": true,
@@ -1362,6 +1558,10 @@
             "title": "[공지사항] 50 제19회 자선소품전 '쌀 한가마니전'(25.01.22 - 25.01.29)",
             "author": "관리자",
             "createdAt": "2025-10-23",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 25,
             "attachments": {
                 "hasFiles": true,
@@ -1399,6 +1599,10 @@
             "title": "[공지사항] 51 네오아트센터 Open",
             "author": "관리자",
             "createdAt": "2025-10-24",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 17,
             "attachments": {
                 "hasFiles": true,
@@ -1424,6 +1628,10 @@
             "title": "[공지사항] 52 네오아트센터 개관식에 참석해 주셔서 감사드립니다.",
             "author": "사용자1",
             "createdAt": "2025-10-25",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 9,
             "attachments": {
                 "hasFiles": true,
@@ -1449,6 +1657,10 @@
             "title": "[공지사항] 53 네오아트센터 개관 초대전 8월15일까지 연장 전시됩니다.",
             "author": "사용자1",
             "createdAt": "2025-10-26",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 6,
             "attachments": {
                 "hasFiles": false,
@@ -1461,6 +1673,10 @@
             "title": "[공지사항] 54 청소년 장학기금 마련 일일음악카페 개최 안내",
             "author": "관리자",
             "createdAt": "2025-10-27",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 8,
             "attachments": {
                 "hasFiles": true,
@@ -1480,6 +1696,10 @@
             "title": "[공지사항] 55 수암골 문화공간, 네오아트센터 그림쏘옥 음악감상실",
             "author": "관리자",
             "createdAt": "2025-10-28",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 1,
             "attachments": {
                 "hasFiles": true,
@@ -1499,6 +1719,10 @@
             "title": "[공지사항] 56 다가오는 전시일정 안내드립니다.",
             "author": "관리자",
             "createdAt": "2025-10-29",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 9,
             "attachments": {
                 "hasFiles": true,
@@ -1518,6 +1742,10 @@
             "title": "[공지사항] 57 네오아트센터 개관 초대전에 동참해주신 작가님들에게 감사 인사드립니다.",
             "author": "관리자",
             "createdAt": "2025-10-30",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 12,
             "attachments": {
                 "hasFiles": true,
@@ -1537,6 +1765,10 @@
             "title": "[공지사항] 58 네오아트센터 휴관일 공지",
             "author": "관리자",
             "createdAt": "2025-11-01",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 20,
             "attachments": {
                 "hasFiles": true,
@@ -1556,6 +1788,10 @@
             "title": "[공지사항] 59 네오아트센터 4층별관 행사 안내",
             "author": "관리자",
             "createdAt": "2025-11-02",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 25,
             "attachments": {
                 "hasFiles": true,
@@ -1593,6 +1829,10 @@
             "title": "[공지사항] 60 제19회 자선소품전 '쌀 한가마니전'(25.01.22 - 25.01.29)",
             "author": "관리자",
             "createdAt": "2025-11-03",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 25,
             "attachments": {
                 "hasFiles": true,
@@ -1630,6 +1870,10 @@
             "title": "[공지사항] 61 네오아트센터 Open",
             "author": "관리자",
             "createdAt": "2025-11-04",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 17,
             "attachments": {
                 "hasFiles": true,
@@ -1655,6 +1899,10 @@
             "title": "[공지사항] 62 네오아트센터 개관식에 참석해 주셔서 감사드립니다.",
             "author": "사용자1",
             "createdAt": "2025-11-05",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 9,
             "attachments": {
                 "hasFiles": true,
@@ -1680,6 +1928,10 @@
             "title": "[공지사항] 63 네오아트센터 개관 초대전 8월15일까지 연장 전시됩니다.",
             "author": "사용자1",
             "createdAt": "2025-11-06",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 6,
             "attachments": {
                 "hasFiles": false,
@@ -1692,6 +1944,10 @@
             "title": "[공지사항] 64 청소년 장학기금 마련 일일음악카페 개최 안내",
             "author": "관리자",
             "createdAt": "2025-11-07",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 8,
             "attachments": {
                 "hasFiles": true,
@@ -1711,6 +1967,10 @@
             "title": "[공지사항] 65 수암골 문화공간, 네오아트센터 그림쏘옥 음악감상실",
             "author": "관리자",
             "createdAt": "2025-11-08",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 1,
             "attachments": {
                 "hasFiles": true,
@@ -1730,6 +1990,10 @@
             "title": "[공지사항] 66 다가오는 전시일정 안내드립니다.",
             "author": "관리자",
             "createdAt": "2025-11-10",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 9,
             "attachments": {
                 "hasFiles": true,
@@ -1749,6 +2013,10 @@
             "title": "[공지사항] 67 네오아트센터 개관 초대전에 동참해주신 작가님들에게 감사 인사드립니다.",
             "author": "관리자",
             "createdAt": "2025-11-11",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 12,
             "attachments": {
                 "hasFiles": true,
@@ -1768,6 +2036,10 @@
             "title": "[공지사항] 68 네오아트센터 휴관일 공지",
             "author": "관리자",
             "createdAt": "2025-11-12",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 20,
             "attachments": {
                 "hasFiles": true,
@@ -1787,6 +2059,10 @@
             "title": "[공지사항] 69 네오아트센터 4층별관 행사 안내",
             "author": "관리자",
             "createdAt": "2025-11-13",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 25,
             "attachments": {
                 "hasFiles": true,
@@ -1824,6 +2100,10 @@
             "title": "[공지사항] 70 제19회 자선소품전 '쌀 한가마니전'(25.01.22 - 25.01.29)",
             "author": "관리자",
             "createdAt": "2025-11-14",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 25,
             "attachments": {
                 "hasFiles": true,
@@ -1861,6 +2141,10 @@
             "title": "[공지사항] 71 네오아트센터 Open",
             "author": "관리자",
             "createdAt": "2025-11-15",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 17,
             "attachments": {
                 "hasFiles": true,
@@ -1886,6 +2170,10 @@
             "title": "[공지사항] 72 네오아트센터 개관식에 참석해 주셔서 감사드립니다.",
             "author": "사용자1",
             "createdAt": "2025-11-16",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 9,
             "attachments": {
                 "hasFiles": true,
@@ -1911,6 +2199,10 @@
             "title": "[공지사항] 73 네오아트센터 개관 초대전 8월15일까지 연장 전시됩니다.",
             "author": "사용자1",
             "createdAt": "2025-11-17",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 6,
             "attachments": {
                 "hasFiles": false,
@@ -1923,6 +2215,10 @@
             "title": "[공지사항] 74 청소년 장학기금 마련 일일음악카페 개최 안내",
             "author": "관리자",
             "createdAt": "2025-11-18",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 8,
             "attachments": {
                 "hasFiles": true,
@@ -1942,6 +2238,10 @@
             "title": "[공지사항] 75 수암골 문화공간, 네오아트센터 그림쏘옥 음악감상실",
             "author": "관리자",
             "createdAt": "2025-11-19",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 1,
             "attachments": {
                 "hasFiles": true,
@@ -1961,6 +2261,10 @@
             "title": "[공지사항] 76 다가오는 전시일정 안내드립니다.",
             "author": "관리자",
             "createdAt": "2025-11-20",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 9,
             "attachments": {
                 "hasFiles": true,
@@ -1980,6 +2284,10 @@
             "title": "[공지사항] 77 네오아트센터 개관 초대전에 동참해주신 작가님들에게 감사 인사드립니다.",
             "author": "관리자",
             "createdAt": "2025-11-21",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 12,
             "attachments": {
                 "hasFiles": true,
@@ -1999,6 +2307,10 @@
             "title": "[공지사항] 78 네오아트센터 휴관일 공지",
             "author": "관리자",
             "createdAt": "2025-11-22",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 20,
             "attachments": {
                 "hasFiles": true,
@@ -2018,6 +2330,10 @@
             "title": "[공지사항] 79 네오아트센터 4층별관 행사 안내",
             "author": "관리자",
             "createdAt": "2025-11-23",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 25,
             "attachments": {
                 "hasFiles": true,
@@ -2055,6 +2371,10 @@
             "title": "[공지사항] 80 제19회 자선소품전 '쌀 한가마니전'(25.01.22 - 25.01.29)",
             "author": "관리자",
             "createdAt": "2025-11-24",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 25,
             "attachments": {
                 "hasFiles": true,
@@ -2092,6 +2412,10 @@
             "title": "[공지사항] 81 네오아트센터 Open",
             "author": "관리자",
             "createdAt": "2025-11-25",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 17,
             "attachments": {
                 "hasFiles": true,
@@ -2117,6 +2441,10 @@
             "title": "[공지사항] 82 네오아트센터 개관식에 참석해 주셔서 감사드립니다.",
             "author": "사용자1",
             "createdAt": "2025-11-26",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 9,
             "attachments": {
                 "hasFiles": true,
@@ -2142,6 +2470,10 @@
             "title": "[공지사항] 83 네오아트센터 개관 초대전 8월15일까지 연장 전시됩니다.",
             "author": "사용자1",
             "createdAt": "2025-11-27",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 6,
             "attachments": {
                 "hasFiles": false,
@@ -2154,6 +2486,10 @@
             "title": "[공지사항] 84청소년 장학기금 마련 일일음악카페 개최 안내",
             "author": "관리자",
             "createdAt": "2025-11-28",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 8,
             "attachments": {
                 "hasFiles": true,
@@ -2173,6 +2509,10 @@
             "title": "[공지사항] 85 수암골 문화공간, 네오아트센터 그림쏘옥 음악감상실",
             "author": "관리자",
             "createdAt": "2025-11-29",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 1,
             "attachments": {
                 "hasFiles": true,
@@ -2192,6 +2532,10 @@
             "title": "[공지사항] 86 다가오는 전시일정 안내드립니다.",
             "author": "관리자",
             "createdAt": "2025-12-01",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 9,
             "attachments": {
                 "hasFiles": true,
@@ -2211,6 +2555,10 @@
             "title": "[공지사항] 87 네오아트센터 개관 초대전에 동참해주신 작가님들에게 감사 인사드립니다.",
             "author": "관리자",
             "createdAt": "2025-12-02",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 12,
             "attachments": {
                 "hasFiles": true,
@@ -2230,6 +2578,10 @@
             "title": "[공지사항] 88 네오아트센터 휴관일 공지",
             "author": "관리자",
             "createdAt": "2025-12-03",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 20,
             "attachments": {
                 "hasFiles": true,
@@ -2249,6 +2601,10 @@
             "title": "[공지사항] 89 네오아트센터 4층별관 행사 안내",
             "author": "관리자",
             "createdAt": "2025-12-04",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 25,
             "attachments": {
                 "hasFiles": true,
@@ -2286,6 +2642,10 @@
             "title": "[공지사항] 90 제19회 자선소품전 '쌀 한가마니전'(25.01.22 - 25.01.29)",
             "author": "관리자",
             "createdAt": "2025-12-05",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 25,
             "attachments": {
                 "hasFiles": true,
@@ -2323,6 +2683,10 @@
             "title": "[공지사항] 91 네오아트센터 Open",
             "author": "관리자",
             "createdAt": "2025-12-06",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 17,
             "attachments": {
                 "hasFiles": true,
@@ -2348,6 +2712,10 @@
             "title": "[공지사항] 92 네오아트센터 개관식에 참석해 주셔서 감사드립니다.",
             "author": "사용자1",
             "createdAt": "2025-12-07",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 9,
             "attachments": {
                 "hasFiles": true,
@@ -2373,6 +2741,10 @@
             "title": "[공지사항] 93 네오아트센터 개관 초대전 8월15일까지 연장 전시됩니다.",
             "author": "사용자1",
             "createdAt": "2025-12-08",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 6,
             "attachments": {
                 "hasFiles": false,
@@ -2385,6 +2757,10 @@
             "title": "[공지사항] 94 청소년 장학기금 마련 일일음악카페 개최 안내",
             "author": "관리자",
             "createdAt": "2025-12-09",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 8,
             "attachments": {
                 "hasFiles": true,
@@ -2404,6 +2780,10 @@
             "title": "[공지사항] 95 수암골 문화공간, 네오아트센터 그림쏘옥 음악감상실",
             "author": "관리자",
             "createdAt": "2025-12-10",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 1,
             "attachments": {
                 "hasFiles": true,
@@ -2423,6 +2803,10 @@
             "title": "[공지사항] 96 다가오는 전시일정 안내드립니다.",
             "author": "관리자",
             "createdAt": "2025-12-11",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 9,
             "attachments": {
                 "hasFiles": true,
@@ -2441,7 +2825,11 @@
             "postNo": 97,
             "title": "[공지사항] 97 네오아트센터 개관 초대전에 동참해주신 작가님들에게 감사 인사드립니다.",
             "author": "관리자",
-            "createdAt": "2025-12-12",
+            "createdAt": "2026-01-01",
+            "noticePeriod": {
+                "startDate": "2026-01-01",
+                "endDate": "2026-01-15"
+            },
             "views": 12,
             "attachments": {
                 "hasFiles": true,
@@ -2460,7 +2848,11 @@
             "postNo": 98,
             "title": "[공지사항] 98 네오아트센터 휴관일 공지",
             "author": "관리자",
-            "createdAt": "2025-12-13",
+            "createdAt": "2026-01-02",
+            "noticePeriod": {
+                "startDate": "2026-01-02",
+                "endDate": "2026-01-15"
+            },
             "views": 20,
             "attachments": {
                 "hasFiles": true,
@@ -2479,7 +2871,11 @@
             "postNo": 99,
             "title": "[공지사항] 99 네오아트센터 4층별관 행사 안내",
             "author": "관리자",
-            "createdAt": "2025-12-14",
+            "createdAt": "2026-01-03",
+            "noticePeriod": {
+                "startDate": "2026-01-03",
+                "endDate": "2026-01-12"
+            },
             "views": 25,
             "attachments": {
                 "hasFiles": true,
@@ -2516,7 +2912,11 @@
             "postNo": 100,
             "title": "[공지사항] 100 제19회 자선소품전 '쌀 한가마니전'(25.01.22 - 25.01.29)",
             "author": "관리자",
-            "createdAt": "2025-12-15",
+            "createdAt": "2026-01-04",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 25,
             "attachments": {
                 "hasFiles": true,
@@ -2553,7 +2953,11 @@
             "postNo": 101,
             "title": "[공지사항] 101 네오아트센터 Open",
             "author": "관리자",
-            "createdAt": "2025-12-16",
+            "createdAt": "2026-01-04",
+            "noticePeriod": {
+                "startDate": "2026-01-04",
+                "endDate": "2026-01-10"
+            },
             "views": 17,
             "attachments": {
                 "hasFiles": true,
@@ -2578,7 +2982,11 @@
             "postNo": 102,
             "title": "[공지사항] 102네오아트센터 개관식에 참석해 주셔서 감사드립니다.",
             "author": "사용자1",
-            "createdAt": "2025-12-17",
+            "createdAt": "2026-01-04",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 9,
             "attachments": {
                 "hasFiles": true,
@@ -2603,7 +3011,11 @@
             "postNo": 103,
             "title": "[공지사항] 103 네오아트센터 개관 초대전 8월15일까지 연장 전시됩니다.",
             "author": "사용자1",
-            "createdAt": "2025-12-18",
+            "createdAt": "2026-01-05",
+            "noticePeriod": {
+                "startDate": "2026-01-05",
+                "endDate": "2026-01-16"
+            },
             "views": 6,
             "attachments": {
                 "hasFiles": false,
@@ -2615,7 +3027,11 @@
             "postNo": 104,
             "title": "[공지사항] 104 청소년 장학기금 마련 일일음악카페 개최 안내",
             "author": "관리자",
-            "createdAt": "2025-12-19",
+            "createdAt": "2026-01-06",
+            "noticePeriod": {
+                "startDate": "",
+                "endDate": ""
+            },
             "views": 8,
             "attachments": {
                 "hasFiles": true,
@@ -2634,7 +3050,11 @@
             "postNo": 105,
             "title": "[공지사항] 105 수암골 문화공간, 네오아트센터 그림쏘옥 음악감상실",
             "author": "관리자",
-            "createdAt": "2025-12-20",
+            "createdAt": "2026-01-06",
+            "noticePeriod": {
+                "startDate": "2026-01-06",
+                "endDate": "2026-01-13"
+            },
             "views": 1,
             "attachments": {
                 "hasFiles": true,
@@ -2653,7 +3073,11 @@
             "postNo": 106,
             "title": "[공지사항] 106 다가오는 전시일정 안내드립니다.",
             "author": "관리자",
-            "createdAt": "2025-12-21",
+            "createdAt": "2026-01-07",
+            "noticePeriod": {
+                "startDate": "2026-01-07",
+                "endDate": "2026-01-10"
+            },
             "views": 9,
             "attachments": {
                 "hasFiles": true,
@@ -2672,7 +3096,11 @@
             "postNo": 107,
             "title": "[공지사항] 107 네오아트센터 개관 초대전에 동참해주신 작가님들에게 감사 인사드립니다.",
             "author": "관리자",
-            "createdAt": "2025-12-22",
+            "createdAt": "2026-01-07",
+            "noticePeriod": {
+                "startDate": "2026-01-07",
+                "endDate": "2026-01-13"
+            },
             "views": 12,
             "attachments": {
                 "hasFiles": true,
@@ -2691,7 +3119,11 @@
             "postNo": 108,
             "title": "[공지사항] 108 네오아트센터 휴관일 공지",
             "author": "관리자",
-            "createdAt": "2025-12-23",
+            "createdAt": "2026-01-08",
+            "noticePeriod": {
+                "startDate": "2026-01-08",
+                "endDate": "2026-01-19"
+            },
             "views": 20,
             "attachments": {
                 "hasFiles": true,
