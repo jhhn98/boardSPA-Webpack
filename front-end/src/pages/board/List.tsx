@@ -1,28 +1,31 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 import Header from '../../components/bbs/Header'
 import Footer from '../../components/bbs/Footer'
 import { loadBoardList } from '@/data/board/boardLoader'
 import bbsInfo from '@/data/board/bbsInfo.json'
-
-type BbsInfoItem = {
-    bbsNo: string
-    bbsNm: string
-}
+import type { BbsInfo } from '@/types/bbsInfo'
 
 export default function List() {
     const { bbsNo } = useParams<{ bbsNo: string }>()
+    if (!bbsNo) return null
+    const bbsConfig = (bbsInfo.data as BbsInfo[]).find((item) => item.bbsNo === bbsNo)
+    if (!bbsConfig) return null
     const posts = bbsNo ? loadBoardList(bbsNo) : []
     const totalPosts = posts.length
     const [openPostNo, setOpenPostNo] = useState<number | null>(null)
-    const bbsName = bbsInfo.data.find((item) => item.bbsNo === bbsNo)?.bbsNm ?? '게시판'
+    const bbsName = bbsConfig.bbsNm
+    const postViewCount = bbsConfig.postViewCount
     // pagination 상태
-    const ITEMS_PER_PAGE = 10
     const [currentPage, setCurrentPage] = useState(1)
+    useEffect(() => {
+        setCurrentPage(1)
+    }, [bbsNo])
+    const paginationGroupSize = bbsConfig.paginationGroupSize
     const visiblePosts = posts
-    const totalPages = Math.ceil(visiblePosts.length / ITEMS_PER_PAGE)
-    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE
-    const endIndex = startIndex + ITEMS_PER_PAGE
+    const totalPages = Math.ceil(visiblePosts.length / postViewCount)
+    const startIndex = (currentPage - 1) * postViewCount
+    const endIndex = startIndex + postViewCount
     const currentPosts = visiblePosts.slice(startIndex, endIndex)
     return (
         <Fragment>
@@ -59,7 +62,7 @@ export default function List() {
                         </tr>
                     )}
                     {currentPosts.map((post, index) => {
-                        const displayNo = totalPosts - (currentPage - 1) * pageSize - index
+                        const displayNo = totalPosts - (currentPage - 1) * postViewCount - index
                         return (
                             <tr key={post.postNo}>
                                 {/*게시물번호 postNo*/}
@@ -116,6 +119,7 @@ export default function List() {
                 totalPages={totalPages}
                 currentPage={currentPage}
                 onPageChange={setCurrentPage}
+                paginationGroupSize={paginationGroupSize}
             />
         </Fragment>
     )

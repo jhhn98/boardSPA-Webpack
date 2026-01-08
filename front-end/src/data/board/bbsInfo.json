@@ -6,11 +6,15 @@
     "data": [
         {
             "bbsNo": "1",
-            "bbsNm": "공지사항"
+            "bbsNm": "공지사항",
+            "postViewCount": 10,
+            "paginationGroupSize": 5
         },
         {
             "bbsNo": "2",
-            "bbsNm": "자유게시판"
+            "bbsNm": "자유게시판",
+            "postViewCount": 10,
+            "paginationGroupSize": 10
         }
     ]
 }

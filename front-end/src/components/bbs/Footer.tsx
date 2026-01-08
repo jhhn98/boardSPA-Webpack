@@ -5,8 +5,14 @@ type FooterProps = {
     totalPages: number
     currentPage: number
     onPageChange: (page: number) => void
+    paginationGroupSize: number
 }
-export default function Footer({ totalPages, currentPage, onPageChange }: FooterProps) {
+export default function Footer({
+    totalPages,
+    currentPage,
+    onPageChange,
+    paginationGroupSize,
+}: FooterProps) {
     return (
         <Fragment>
             <div className="post-actions margin-top-20">
@@ -21,7 +27,12 @@ export default function Footer({ totalPages, currentPage, onPageChange }: Footer
                     </a>*/}
                 </div>
             </div>
-            <Pagination totalPages={totalPages} currentPage={currentPage} onChange={onPageChange} />
+            <Pagination
+                totalPages={totalPages}
+                currentPage={currentPage}
+                onChange={onPageChange}
+                paginationGroupSize={paginationGroupSize}
+            />
         </Fragment>
     )
 }

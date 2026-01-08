@@ -4,14 +4,9 @@ type PaginationProps = {
     currentPage: number
     totalPages: number
     onChange: (page: number) => void
-    pageGroupSize?: number
+    paginationGroupSize: number
 }
-export function Pagination({
-    currentPage,
-    totalPages,
-    onChange,
-    pageGroupSize = 5,
-}: PaginationProps) {
+export function Pagination({ currentPage, totalPages, onChange, paginationGroupSize }: PaginationProps) {
     const goFirst = () => onChange(1)
     const goLast = () => onChange(totalPages)
     /*const goPrevious = () => {
@@ -34,9 +29,9 @@ export function Pagination({
             onChange(endPage + 1)
         }
     }
-    const currentGroup = Math.floor((currentPage - 1) / pageGroupSize)
-    const startPage = currentGroup * pageGroupSize + 1
-    const endPage = Math.min(startPage + pageGroupSize - 1, totalPages)
+    const currentGroup = Math.floor((currentPage - 1) / paginationGroupSize)
+    const startPage = currentGroup * paginationGroupSize + 1
+    const endPage = Math.min(startPage + paginationGroupSize - 1, totalPages)
     const pages = Array.from({ length: endPage - startPage + 1 }, (_, i) => startPage + i)
     return (
         <div className="pagination">
