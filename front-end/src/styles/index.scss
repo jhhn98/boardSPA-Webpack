@@ -2,8 +2,8 @@
 @use './base/mixins';
 @use './base/utilities';
 @use './base/typography';
-@use './base/style-reset';
-@use './base/style-base';
+@use './base/styleReset';
+@use './base/styleBase';
 header {
     padding: 20px;
     h1 {
