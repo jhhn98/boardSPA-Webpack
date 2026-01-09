@@ -6,7 +6,12 @@ type PaginationProps = {
     onChange: (page: number) => void
     paginationGroupSize: number
 }
-export function Pagination({ currentPage, totalPages, onChange, paginationGroupSize }: PaginationProps) {
+export function Pagination({
+    currentPage,
+    totalPages,
+    onChange,
+    paginationGroupSize,
+}: PaginationProps) {
     const goFirst = () => onChange(1)
     const goLast = () => onChange(totalPages)
     /*const goPrevious = () => {
@@ -36,11 +41,11 @@ export function Pagination({ currentPage, totalPages, onChange, paginationGroupS
     return (
         <div className="pagination">
             <button className="page-arrow first" onClick={goFirst}>
-                <Icon name="angleDoubleLeft" width={16} height={16} fill="#333" />
+                <Icon name="chevronLeftDouble" width={16} height={16} fill="#333" />
                 <span>처음 페이지로 이동</span>
             </button>
             <button className="page-arrow prev" onClick={goPreviousGroup}>
-                <Icon name="angleLeft" width={16} height={16} fill="#333" />
+                <Icon name="chevronLeft" width={16} height={16} fill="#333" />
                 <span>이전 페이지로 이동</span>
             </button>
             {pages.map((page) =>
@@ -55,11 +60,11 @@ export function Pagination({ currentPage, totalPages, onChange, paginationGroupS
                 ),
             )}
             <button className="page-arrow next" onClick={goNextGroup}>
-                <Icon name="angleRight" width={16} height={16} fill="#333" />
+                <Icon name="chevronRight" width={16} height={16} fill="#333" />
                 <span>다음 페이지로 이동</span>
             </button>
             <button className="page-arrow last" onClick={goLast}>
-                <Icon name="angleDoubleRight" width={16} height={16} fill="#333" />
+                <Icon name="chevronRightDouble" width={16} height={16} fill="#333" />
                 <span>마지막 페이지로 이동</span>
             </button>
         </div>
