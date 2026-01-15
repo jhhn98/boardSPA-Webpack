@@ -396,830 +396,201 @@ export function DatePicker() {
                     <Icon name="calendarDay" width={16} height={16} fill="#ec0044" />
                     <span>달력UI열기</span>
                 </button>
-                {calendarPanelState && (
-                    <div
-                        ref={calendarMonthsRef}
-                        className={`calendar-panel${calendarPanelState ? ' is-open' : ''}`}
-                        role="dialog"
-                        aria-hidden={!calendarPanelState}
-                    >
-                        <div className="calendar-panel-header">
-                            <div className="header-left">
-                                <button
-                                    type="button"
-                                    className="handle-months-open"
-                                    onClick={() => setCalendarMonthsState((s) => !s)}
-                                >
-                                    <span>년도,월선택</span>
-                                    {year}년 {month}월
-                                    <Icon name="grid" width={12} height={12} fill="#999" />
-                                </button>
-                            </div>
-                            <div className="header-right">
-                                <button
-                                    type="button"
-                                    className="handle-month prev"
-                                    onClick={() => moveMonth('prev')}
-                                    aria-label="이전 달력 보기"
-                                >
-                                    <span>이전달</span>
-                                    <Icon name="angleLeft" width={16} height={16} fill="#999" />
-                                </button>
-                                <button
-                                    type="button"
-                                    className="handle-month next"
-                                    onClick={() => moveMonth('next')}
-                                    aria-label="다음 달력 보기"
-                                >
-                                    <span>다음달</span>
-                                    <Icon name="angleRight" width={16} height={16} fill="#999" />
-                                </button>
-                            </div>
-                        </div>
-                        <div className="calendar-panel-body">
-                            {/**
-                             날짜 버튼 클릭시 초기 보여질 달력화면
-                             */}
-                            <div
-                                className={`calendar-days ${calendarMonthsState ? 'is-close' : ''}`}
+                <div
+                    ref={calendarMonthsRef}
+                    className={`calendar-panel${calendarPanelState ? ' is-open' : ''}`}
+                    role="dialog"
+                    aria-hidden={!calendarPanelState}
+                    aria-expanded={calendarPanelState}
+                >
+                    <div className="calendar-panel-header">
+                        <div className="header-left">
+                            <button
+                                type="button"
+                                className="handle-months-open"
+                                onClick={() => setCalendarMonthsState((s) => !s)}
                             >
-                                <ul className="weekly">
-                                    <li>일</li>
-                                    <li>월</li>
-                                    <li>화</li>
-                                    <li>수</li>
-                                    <li>목</li>
-                                    <li>금</li>
-                                    <li>토</li>
-                                </ul>
-                                <ul className="daily">
-                                    {calendarDateCells.map((cell, index) => {
-                                        if (!cell.day) {
-                                            return (
-                                                <li key={index}>
-                                                    <span aria-hidden="true" />
-                                                </li>
-                                            )
-                                        }
-                                        const dayOfWeekIndex = new Date(
-                                            cell.year,
-                                            cell.month - 1,
-                                            cell.day,
-                                        ).getDay()
-
-                                        const weekDayName = [
-                                            '일',
-                                            '월',
-                                            '화',
-                                            '수',
-                                            '목',
-                                            '금',
-                                            '토',
-                                        ][dayOfWeekIndex]
-                                        const cellDateString = `${cell.year}-${pad(cell.month)}-${pad(cell.day)}`
-                                        const isSelectedDay = selectedDate === cellDateString
-                                        const todayString = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`
-                                        const isToday =
-                                            `${year}-${month}-${String(cell.day).padStart(2, '0')}` ===
-                                            todayString
-                                        const isSunday = dayOfWeekIndex === 0
-                                        const isSaturday = dayOfWeekIndex === 6
-
+                                <span>년도,월선택</span>
+                                {year}년 {month}월
+                                <Icon name="grid" width={12} height={12} fill="#999" />
+                            </button>
+                        </div>
+                        <div className="header-right">
+                            <button
+                                type="button"
+                                className="handle-month prev"
+                                onClick={() => moveMonth('prev')}
+                                aria-label="이전 달력 보기"
+                            >
+                                <span>이전달</span>
+                                <Icon name="angleLeft" width={16} height={16} fill="#999" />
+                            </button>
+                            <button
+                                type="button"
+                                className="handle-month next"
+                                onClick={() => moveMonth('next')}
+                                aria-label="다음 달력 보기"
+                            >
+                                <span>다음달</span>
+                                <Icon name="angleRight" width={16} height={16} fill="#999" />
+                            </button>
+                        </div>
+                    </div>
+                    <div className="calendar-panel-body">
+                        {/**
+                         날짜 버튼 클릭시 초기 보여질 달력화면
+                         */}
+                        <div
+                            className={`calendar-days ${calendarMonthsState ? 'is-close' : ''}`}
+                        >
+                            <ul className="weekly">
+                                <li>일</li>
+                                <li>월</li>
+                                <li>화</li>
+                                <li>수</li>
+                                <li>목</li>
+                                <li>금</li>
+                                <li>토</li>
+                            </ul>
+                            <ul className="daily">
+                                {calendarDateCells.map((cell, index) => {
+                                    if (!cell.day) {
                                         return (
-                                            <li
-                                                key={index}
-                                                className={[
-                                                    isSelectedDay ? 'is-selected' : undefined,
-                                                    isToday ? 'is-today' : undefined,
-                                                    isSunday ? 'is-sun' : undefined,
-                                                    isSaturday ? 'is-sat' : undefined,
-                                                ]
-                                                    .filter(Boolean)
-                                                    .join(' ')}
-                                            >
-                                                <button
-                                                    type="button"
-                                                    aria-label={`${year}년 ${month}월 ${cell.day}일 ${weekDayName}요일`}
-                                                    onClick={() => handleSelectDay(cell)}
-                                                >
-                                                    {cell.day}
-                                                </button>
+                                            <li key={index}>
+                                                <span aria-hidden="true" />
                                             </li>
                                         )
-                                    })}
-                                    {/*<li>
-                                        <button type="button">1</button>
-                                    </li>
-                                    <li>
-                                        <button type="button">2</button>
-                                    </li>
-                                    <li>
-                                        <button type="button">3</button>
-                                    </li>
-                                    <li>
-                                        <button type="button">4</button>
-                                    </li>
-                                    <li>
-                                        <button type="button">5</button>
-                                    </li>
-                                    <li>
-                                        <button type="button">6</button>
-                                    </li>
-                                    <li>
-                                        <button type="button">7</button>
-                                    </li>
-                                    <li>
-                                        <button type="button">8</button>
-                                    </li>
-                                    <li>
-                                        <button type="button">9</button>
-                                    </li>
-                                    <li>
-                                        <button type="button">10</button>
-                                    </li>
-                                    <li>
-                                        <button type="button">11</button>
-                                    </li>
-                                    <li>
-                                        <button type="button">12</button>
-                                    </li>
-                                    <li>
-                                        <button type="button">13</button>
-                                    </li>
-                                    <li>
-                                        <button type="button">14</button>
-                                    </li>
-                                    <li>
-                                        <button type="button">15</button>
-                                    </li>
-                                    <li>
-                                        <button type="button">16</button>
-                                    </li>
-                                    <li>
-                                        <button type="button">17</button>
-                                    </li>
-                                    <li>
-                                        <button type="button">18</button>
-                                    </li>
-                                    <li>
-                                        <button type="button">19</button>
-                                    </li>
-                                    <li>
-                                        <button type="button">20</button>
-                                    </li>
-                                    <li>
-                                        <button type="button">21</button>
-                                    </li>
-                                    <li>
-                                        <button type="button">22</button>
-                                    </li>
-                                    <li>
-                                        <button type="button">23</button>
-                                    </li>
-                                    <li>
-                                        <button type="button">24</button>
-                                    </li>
-                                    <li>
-                                        <button type="button">25</button>
-                                    </li>
-                                    <li>
-                                        <button type="button">26</button>
-                                    </li>
-                                    <li>
-                                        <button type="button">27</button>
-                                    </li>
-                                    <li>
-                                        <button type="button">28</button>
-                                    </li>
-                                    <li>
-                                        <button type="button">29</button>
-                                    </li>
-                                    <li>
-                                        <button type="button">30</button>
-                                    </li>
-                                    <li>
-                                        <button type="button">31</button>
-                                    </li>
-                                    <li>
-                                        <button type="button">1</button>
-                                    </li>
-                                    <li>
-                                        <button type="button">2</button>
-                                    </li>
-                                    <li>
-                                        <button type="button">3</button>
-                                    </li>
-                                    <li>
-                                        <button type="button">4</button>
-                                    </li>*/}
-                                </ul>
-                            </div>
-                            {/**
-                             calendar-panel-header의 selectYM 버튼 클릭시 보여질 년도, 월 선택 화면
-                             */}
-                            <div
-                                ref={calendarMonthsRef}
-                                className={`calendar-months ${calendarMonthsState ? 'is-open' : ''}`}
-                                onScroll={handleYearScroll}
-                                onWheel={handleYearWheel}
-                            >
-                                <ul className="list-year">
-                                    {visibleYears.map((yearValue) => (
+                                    }
+                                    const dayOfWeekIndex = new Date(
+                                        cell.year,
+                                        cell.month - 1,
+                                        cell.day,
+                                    ).getDay()
+
+                                    const weekDayName = ['일', '월', '화', '수', '목', '금', '토'][
+                                        dayOfWeekIndex
+                                    ]
+                                    const cellDateString = `${cell.year}-${pad(cell.month)}-${pad(cell.day)}`
+                                    const isSelectedDay = selectedDate === cellDateString
+                                    const todayString = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`
+                                    const isToday =
+                                        `${year}-${month}-${String(cell.day).padStart(2, '0')}` ===
+                                        todayString
+                                    const isSunday = dayOfWeekIndex === 0
+                                    const isSaturday = dayOfWeekIndex === 6
+
+                                    return (
                                         <li
-                                            key={yearValue}
-                                            className={
-                                                yearValue === activeYear ? 'is-active' : undefined
-                                            }
+                                            key={index}
+                                            className={[
+                                                isSelectedDay ? 'is-selected' : undefined,
+                                                isToday ? 'is-today' : undefined,
+                                                isSunday ? 'is-sun' : undefined,
+                                                isSaturday ? 'is-sat' : undefined,
+                                            ]
+                                                .filter(Boolean)
+                                                .join(' ')}
                                         >
                                             <button
                                                 type="button"
-                                                className="handle-year"
-                                                onClick={() => setActiveYear(yearValue)}
-                                                aria-expanded={yearValue === activeYear}
+                                                aria-label={`${year}년 ${month}월 ${cell.day}일 ${weekDayName}요일`}
+                                                onClick={() => handleSelectDay(cell)}
                                             >
-                                                {yearValue}년
+                                                {cell.day}
                                             </button>
-                                            <ul className="list-month">
-                                                {Array.from(
-                                                    { length: 12 },
-                                                    (_: never, index: number) => {
-                                                        const monthValue = index + 1
-                                                        return (
-                                                            <li
-                                                                key={monthValue}
-                                                                className={
-                                                                    yearValue === Number(year) &&
-                                                                    monthValue === Number(month)
-                                                                        ? 'is-selected'
-                                                                        : undefined
-                                                                }
-                                                            >
-                                                                <button
-                                                                    type="button"
-                                                                    onClick={() => {
-                                                                        setYear(String(yearValue))
-                                                                        setMonth(
-                                                                            String(
-                                                                                monthValue,
-                                                                            ).padStart(2, '0'),
-                                                                        )
-                                                                        setCalendarMonthsState(
-                                                                            false,
-                                                                        )
-                                                                    }}
-                                                                >
-                                                                    {monthValue}월
-                                                                </button>
-                                                            </li>
-                                                        )
-                                                    },
-                                                )}
-                                            </ul>
                                         </li>
-                                    ))}
-                                    {/*<li>
-                                        <button type="button" className="handle-year">
-                                            2019년
-                                        </button>
-                                        <ul className="list-month">
-                                            <li>
-                                                <button type="button">1월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">2월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">3월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">4월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">5월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">6월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">7월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">8월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">9월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">10월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">11월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">12월</button>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <button type="button" className="handle-year">
-                                            2020년
-                                        </button>
-                                        <ul className="list-month">
-                                            <li>
-                                                <button type="button">1월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">2월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">3월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">4월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">5월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">6월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">7월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">8월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">9월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">10월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">11월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">12월</button>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <button type="button" className="handle-year">
-                                            2021년
-                                        </button>
-                                        <ul className="list-month">
-                                            <li>
-                                                <button type="button">1월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">2월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">3월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">4월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">5월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">6월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">7월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">8월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">9월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">10월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">11월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">12월</button>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <button type="button" className="handle-year">
-                                            2022년
-                                        </button>
-                                        <ul className="list-month">
-                                            <li>
-                                                <button type="button">1월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">2월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">3월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">4월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">5월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">6월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">7월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">8월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">9월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">10월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">11월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">12월</button>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <button type="button" className="handle-year">
-                                            2023년
-                                        </button>
-                                        <ul className="list-month">
-                                            <li>
-                                                <button type="button">1월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">2월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">3월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">4월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">5월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">6월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">7월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">8월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">9월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">10월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">11월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">12월</button>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <button type="button" className="handle-year">
-                                            2024년
-                                        </button>
-                                        <ul className="list-month">
-                                            <li>
-                                                <button type="button">1월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">2월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">3월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">4월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">5월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">6월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">7월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">8월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">9월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">10월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">11월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">12월</button>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li className="is-active">
-                                        <button type="button" className="handle-year">
-                                            2025년
-                                        </button>
-                                        <ul className="list-month">
-                                            <li>
-                                                <button type="button">1월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">2월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">3월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">4월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">5월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">6월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">7월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">8월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">9월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">10월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">11월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">12월</button>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <button type="button" className="handle-year">
-                                            2026년
-                                        </button>
-                                        <ul className="list-month">
-                                            <li>
-                                                <button type="button">1월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">2월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">3월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">4월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">5월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">6월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">7월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">8월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">9월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">10월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">11월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">12월</button>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <button type="button" className="handle-year">
-                                            2027년
-                                        </button>
-                                        <ul className="list-month">
-                                            <li>
-                                                <button type="button">1월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">2월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">3월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">4월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">5월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">6월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">7월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">8월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">9월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">10월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">11월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">12월</button>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <button type="button" className="handle-year">
-                                            2028년
-                                        </button>
-                                        <ul className="list-month">
-                                            <li>
-                                                <button type="button">1월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">2월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">3월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">4월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">5월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">6월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">7월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">8월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">9월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">10월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">11월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">12월</button>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <button type="button" className="handle-year">
-                                            2029년
-                                        </button>
-                                        <ul className="list-month">
-                                            <li>
-                                                <button type="button">1월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">2월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">3월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">4월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">5월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">6월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">7월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">8월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">9월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">10월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">11월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">12월</button>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <button type="button" className="handle-year">
-                                            2030년
-                                        </button>
-                                        <ul className="list-month">
-                                            <li>
-                                                <button type="button">1월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">2월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">3월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">4월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">5월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">6월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">7월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">8월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">9월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">10월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">11월</button>
-                                            </li>
-                                            <li>
-                                                <button type="button">12월</button>
-                                            </li>
-                                        </ul>
-                                    </li>*/}
-                                </ul>
-                            </div>
+                                    )
+                                })}
+                            </ul>
                         </div>
-                        <div className="calendar-panel-footer">
-                            <div className="footer-left">
-                                <button
-                                    type="button"
-                                    className="reset-date"
-                                    onClick={handleResetDate}
-                                    aria-label="날짜 선택 닫기"
-                                >
-                                    닫기
-                                </button>
-                            </div>
-                            <div className="footer-right">
-                                <button
-                                    type="button"
-                                    className="reset-today"
-                                    onClick={handleSelectToday}
-                                    aria-label="오늘 날짜 선택"
-                                >
-                                    오늘
-                                </button>
-                            </div>
+                        {/**
+                         calendar-panel-header의 selectYM 버튼 클릭시 보여질 년도, 월 선택 화면
+                         */}
+                        <div
+                            ref={calendarMonthsRef}
+                            className={`calendar-months ${calendarMonthsState ? 'is-open' : ''}`}
+                            onScroll={handleYearScroll}
+                            onWheel={handleYearWheel}
+                        >
+                            <ul className="list-year">
+                                {visibleYears.map((yearValue) => (
+                                    <li
+                                        key={yearValue}
+                                        className={
+                                            yearValue === activeYear ? 'is-active' : undefined
+                                        }
+                                    >
+                                        <button
+                                            type="button"
+                                            className="handle-year"
+                                            onClick={() => setActiveYear(yearValue)}
+                                            aria-expanded={yearValue === activeYear}
+                                        >
+                                            {yearValue}년
+                                        </button>
+                                        <ul className="list-month">
+                                            {Array.from(
+                                                { length: 12 },
+                                                (_: never, index: number) => {
+                                                    const monthValue = index + 1
+                                                    return (
+                                                        <li
+                                                            key={monthValue}
+                                                            className={
+                                                                yearValue === Number(year) &&
+                                                                monthValue === Number(month)
+                                                                    ? 'is-selected'
+                                                                    : undefined
+                                                            }
+                                                        >
+                                                            <button
+                                                                type="button"
+                                                                onClick={() => {
+                                                                    setYear(String(yearValue))
+                                                                    setMonth(
+                                                                        String(monthValue).padStart(
+                                                                            2,
+                                                                            '0',
+                                                                        ),
+                                                                    )
+                                                                    setCalendarMonthsState(false)
+                                                                }}
+                                                            >
+                                                                {monthValue}월
+                                                            </button>
+                                                        </li>
+                                                    )
+                                                },
+                                            )}
+                                        </ul>
+                                    </li>
+                                ))}
+                            </ul>
                         </div>
                     </div>
-                )}
+                    <div className="calendar-panel-footer">
+                        <div className="footer-left">
+                            <button
+                                type="button"
+                                className="reset-date"
+                                onClick={handleResetDate}
+                                aria-label="날짜 선택 닫기"
+                            >
+                                닫기
+                            </button>
+                        </div>
+                        <div className="footer-right">
+                            <button
+                                type="button"
+                                className="reset-today"
+                                onClick={handleSelectToday}
+                                aria-label="오늘 날짜 선택"
+                            >
+                                오늘
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     )
