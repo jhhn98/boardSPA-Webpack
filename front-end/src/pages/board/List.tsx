@@ -5,6 +5,7 @@ import Footer from '../../components/bbs/Footer'
 import { loadBoardList } from '@/data/board/boardLoader'
 import bbsInfo from '@/data/board/bbsInfo.json'
 import type { BbsInfo } from '@/types/bbsInfo'
+import Icon from '@/components/ui/icon/Icon'
 
 export default function List() {
     const { bbsNo } = useParams<{ bbsNo: string }>()
@@ -27,6 +28,98 @@ export default function List() {
     const startIndex = (currentPage - 1) * postViewCount
     const endIndex = startIndex + postViewCount
     const currentPosts = visiblePosts.slice(startIndex, endIndex)
+    const isInNoticePeriod = (post: any, today = new Date()) => {
+        const period = post.noticePeriod
+        if (!period?.startDate || !period.endDate) return false
+
+        const start = new Date(`${period.startDate}T00:00:00`)
+        const end = new Date(`${period.endDate}T23:59:59`)
+
+        return start <= today && today && today <= end
+    }
+    const isFirstPage = currentPage === 1
+    const noticePosts = isFirstPage ? currentPosts.filter((post) => isInNoticePeriod(post)) : []
+
+    const renderNoticeRow = (post: any) => (
+        <tr key={`notice-${post.postNo}`}>
+            <td>
+                <Icon name="megaphone" width={18} height={18} fill="#ec0044" />
+            </td>
+            <td className="text-align-left">
+                <Link to="/bbsView">{post.title}</Link>
+            </td>
+            <td>{post.author}</td>
+            <td>{post.createdAt}</td>
+            <td className="attachment">
+                {post.attachments?.hasFiles && (
+                    <Fragment>
+                        <button
+                            type="button"
+                            className="handle-button"
+                            onClick={() =>
+                                setOpenPostNo((prev) =>
+                                    prev === Number(post.postNo) ? null : Number(post.postNo),
+                                )
+                            }
+                        >
+                            첨부파일 보기
+                        </button>
+                        <ul
+                            className={`attachment-list${openPostNo === Number(post.postNo) ? ' is-open' : ''}`}
+                        >
+                            {post.attachments?.files.map((file: any) => (
+                                <li key={file.fileId}>
+                                    <a href={file.url}>
+                                        <span className="file-name">{file.name}</span>
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </Fragment>
+                )}
+            </td>
+            <td>{post.views}</td>
+        </tr>
+    )
+    const renderNormalRow = (post: any, displayNo: number) => (
+        <tr key={post.postNo}>
+            <td>{displayNo}</td>
+            <td className="text-align-left">
+                <Link to="/bbsView">{post.title}</Link>
+            </td>
+            <td>{post.author}</td>
+            <td>{post.createdAt}</td>
+            <td className="attachment">
+                {post.attachments?.hasFiles && (
+                    <Fragment>
+                        <button
+                            type="button"
+                            className="handle-button"
+                            onClick={() =>
+                                setOpenPostNo((prev) =>
+                                    prev === Number(post.postNo) ? null : Number(post.postNo),
+                                )
+                            }
+                        >
+                            첨부파일 보기
+                        </button>
+                        <ul
+                            className={`attachment-list${openPostNo === Number(post.postNo) ? ' is-open' : ''}`}
+                        >
+                            {post.attachments?.files.map((file: any) => (
+                                <li key={file.fileId}>
+                                    <a href={file.url}>
+                                        <span className="file-name">{file.name}</span>
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </Fragment>
+                )}
+            </td>
+            <td>{post.views}</td>
+        </tr>
+    )
     return (
         <Fragment>
             <Header
@@ -61,57 +154,11 @@ export default function List() {
                             <td colSpan={6}>등록된 게시물이 없습니다.</td>
                         </tr>
                     )}
+                    {/* 공지기간 게시물. 첫번째 목록 상단에 표시 */}
+                    {noticePosts.map((post) => renderNoticeRow(post))}
                     {currentPosts.map((post, index) => {
                         const displayNo = totalPosts - (currentPage - 1) * postViewCount - index
-                        return (
-                            <tr key={post.postNo}>
-                                {/*게시물번호 postNo*/}
-                                <td className="text-align-right">{displayNo}</td>
-                                {/*제목 title*/}
-                                <td className="text-align-left">
-                                    <Link to="/bbsView">{post.title}</Link>
-                                </td>
-                                {/*작성자 author*/}
-                                <td>{post.author}</td>
-                                {/*작성일 createdAt*/}
-                                <td>{post.createdAt}</td>
-                                {/*첨부파일 attachments*/}
-                                <td className="attachment">
-                                    {post.attachments?.hasFiles && (
-                                        <Fragment>
-                                            <button
-                                                type="button"
-                                                className="handle-button"
-                                                onClick={() =>
-                                                    setOpenPostNo((prev) =>
-                                                        prev === Number(post.postNo)
-                                                            ? null
-                                                            : Number(post.postNo),
-                                                    )
-                                                }
-                                            >
-                                                첨부파일 보기
-                                            </button>
-                                            <ul
-                                                className={`attachment-list${openPostNo === Number(post.postNo) ? ' is-open' : ''}`}
-                                            >
-                                                {post.attachments?.files.map((file) => (
-                                                    <li key={file.fileId}>
-                                                        <a href={file.url}>
-                                                            <span className="file-name">
-                                                                {file.name}
-                                                            </span>
-                                                        </a>
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </Fragment>
-                                    )}
-                                </td>
-                                {/*조회수 views*/}
-                                <td>{post.views}</td>
-                            </tr>
-                        )
+                        return renderNormalRow(post, displayNo)
                     })}
                 </tbody>
             </table>
