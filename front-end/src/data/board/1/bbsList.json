@@ -2984,8 +2984,8 @@
             "author": "사용자1",
             "createdAt": "2026-01-04",
             "noticePeriod": {
-                "startDate": "",
-                "endDate": ""
+                "startDate": "2026-01-04",
+                "endDate": "2026-05-01"
             },
             "views": 9,
             "attachments": {
@@ -3122,7 +3122,7 @@
             "createdAt": "2026-01-08",
             "noticePeriod": {
                 "startDate": "2026-01-08",
-                "endDate": "2026-03-19"
+                "endDate": "2026-05-01"
             },
             "views": 20,
             "attachments": {
