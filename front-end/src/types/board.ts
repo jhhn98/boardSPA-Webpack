@@ -13,6 +13,10 @@ export interface BoardPost {
     title: string
     author: string
     createdAt: string
+    noticePeriod?: {
+        startDate: string
+        endDate: string
+    }
     attachments?: Attachments
     views: number
 }
