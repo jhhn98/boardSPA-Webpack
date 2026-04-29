@@ -44,7 +44,7 @@ export default function List() {
 
     const renderNoticeRow = (post: BoardPost) => {
         const rowKey = `notice-${post.postNo}`
-        return(
+        return (
             <tr key={rowKey}>
                 <td>
                     <Icon name="megaphone" width={18} height={18} fill="#ec0044" />
@@ -61,8 +61,8 @@ export default function List() {
                                 type="button"
                                 className="handle-button"
                                 onClick={() =>
-                                    setOpenAttachmentKey(prev =>
-                                        prev === rowKey ? null : rowKey
+                                    setOpenAttachmentKey((prev) =>
+                                        prev === rowKey ? null : rowKey,
                                     )
                                 }
                             >
@@ -85,7 +85,6 @@ export default function List() {
                 <td>{post.views}</td>
             </tr>
         )
-
     }
     const renderNormalRow = (post: BoardPost, displayNo: number) => {
         const rowKey = `post-${post.postNo}`
