@@ -14,7 +14,7 @@ export default function App() {
                 <Route element={<Layout />}>
                     <Route path="/" element={<Home />} />
                     <Route path="/bbsList/:bbsNo" element={<List />} />
-                    <Route path="/bbsView" element={<View />} />
+                    <Route path="/bbsView/:bbsNo/:postNo" element={<View />} />
                     <Route path="/bbsWrite" element={<Write />} />
                     <Route path="/bbsEdit" element={<Edit />} />
                 </Route>

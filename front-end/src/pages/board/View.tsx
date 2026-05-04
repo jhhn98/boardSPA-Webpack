@@ -1,6 +1,10 @@
 import { Fragment } from 'react'
+import { useParams } from 'react-router'
 
 export default function View() {
+    const { bbsNo, postNo } = useParams<{ bbsNo: string; postNo: string }>()
+
+    console.log(bbsNo, postNo)
     return (
         <Fragment>
             <h2>&#39;게시물 제목&#39; 상세보기</h2>
@@ -11,7 +15,7 @@ export default function View() {
                 </div>
             </div>
             <ul className="post-what view">
-                {/* 기본으로 들어가는 클래스명을 못정하겠다..ㅠㅠ 이름짓기 어렵다. */}
+                {/* TODO: 기본으로 들어가는 클래스명을 못정하겠다..ㅠㅠ 이름짓기 어렵다. */}
                 <li className="title">
                     <strong id="postTitle">제목</strong>
                     <div aria-labelledby="postTitle">

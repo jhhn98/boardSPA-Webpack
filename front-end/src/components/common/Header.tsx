@@ -1,5 +1,6 @@
 import { Link, NavLink } from 'react-router-dom'
-const getNavLinkClass = ({ isActive }: {isActive: boolean}) => `navigation-link${isActive ? ' active' : ''}`
+const getNavLinkClass = ({ isActive }: { isActive: boolean }) =>
+    `navigation-link${isActive ? ' active' : ''}`
 export default function Header() {
     return (
         <header>

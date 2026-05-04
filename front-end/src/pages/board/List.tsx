@@ -50,7 +50,7 @@ export default function List() {
                     <Icon name="megaphone" width={18} height={18} fill="#ec0044" />
                 </td>
                 <td className="text-align-left">
-                    <Link to="/bbsView">{post.title}</Link>
+                    <Link to={`/bbsView/${bbsNo}/${post.postNo}`}>{post.title}</Link>
                 </td>
                 <td>{post.author}</td>
                 <td>{post.createdAt}</td>
@@ -92,7 +92,7 @@ export default function List() {
             <tr key={post.postNo}>
                 <td>{displayNo}</td>
                 <td className="text-align-left">
-                    <Link to="/bbsView">{post.title}</Link>
+                    <Link to={`/bbsView/${bbsNo}/${post.postNo}`}>{post.title}</Link>
                 </td>
                 <td>{post.author}</td>
                 <td>{post.createdAt}</td>
